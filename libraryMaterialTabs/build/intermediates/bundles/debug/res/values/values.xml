@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ActionView"><attr format="color" name="av_color"/><attr format="enum" name="av_action"><enum name="drawer" value="0"/><enum name="back" value="1"/><enum name="close" value="2"/><enum name="plus" value="3"/></attr></declare-styleable>
+    <declare-styleable name="MaterialTabHost"><attr format="boolean" name="hasIcons"/></declare-styleable>
+    <dimen name="materialTextTab">14sp</dimen>
+    <dimen name="tabSelectorHeight">2dp</dimen>
+    <dimen name="tabhostHeight">48dp</dimen>
+    <integer name="av_animationDuration">340</integer>
+    <integer name="rcv_animationDurationHide">420</integer>
+    <integer name="rcv_animationDurationReveal">420</integer>
+</resources>
