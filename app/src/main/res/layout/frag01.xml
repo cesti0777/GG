@@ -8,8 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="제품 내용 01"
-        android:textSize="20dp"
-        android:textColor="#ffad8745" />
+        android:textSize="30dp"
+        android:textColor="#4567E3" />
 
 </RelativeLayout>
