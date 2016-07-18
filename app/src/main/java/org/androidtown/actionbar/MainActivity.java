@@ -23,6 +23,7 @@ import com.neokree.materialtabs.MaterialTabListener;
  * @author Mike
  */
 public class MainActivity extends ActionBarActivity {
+	//테스팅 주석
 
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
