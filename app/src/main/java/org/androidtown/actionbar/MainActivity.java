@@ -306,10 +306,10 @@ public class MainActivity extends ActionBarActivity {
 										acccount++;
 									}
 
-									if(acccount>20) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
-										accnoti = accdatas[20]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
+									if(acccount>10) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
+										accnoti = accdatas[10]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
 										acccount = 0;
-										accdatas[20]=0;
+										accdatas[10]=0;
 										accdatas[0]=0;
 										accok = true;
 									}
