@@ -306,10 +306,10 @@ public class MainActivity extends ActionBarActivity {
 										acccount++;
 									}
 
-									if(acccount>50) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
-										accnoti = accdatas[50]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
+									if(acccount>20) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
+										accnoti = accdatas[20]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
 										acccount = 0;
-										accdatas[50]=0;
+										accdatas[20]=0;
 										accdatas[0]=0;
 										accok = true;
 									}
@@ -318,10 +318,10 @@ public class MainActivity extends ActionBarActivity {
 
 									handler.post(new Runnable(){
 										// 수신된 문자열 데이터에 대한 처리.
-										
+
 										@Override
 										public void run() {
-
+											pagerAdapter.notifyDataSetChanged();
 
 											if(temperature>21){
 												if(firealarm == 30) {
@@ -340,11 +340,6 @@ public class MainActivity extends ActionBarActivity {
 													accok=false;
 												}
 												}
-
-
-
-
-
 
 											}
 
