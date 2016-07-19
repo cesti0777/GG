@@ -43,7 +43,11 @@ import java.util.UUID;
  */
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
-
+	private static final String ARG_PARAM2 = "심박수";
+	private static final String ARG_PARAM3 = "움직임";
+	private static final String ARG_PARAM4 = "접근금지";
+	Bundle args = new Bundle();
+	Fragment frag = null;
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
 	 */
@@ -241,17 +245,18 @@ public class MainActivity extends ActionBarActivity {
 									//StringTokenizer stdata = new StringTokenizer(data, "\n");
 									//String testdata = stdata.nextToken();
 									final int testdata = Integer.valueOf(data);
-
 									if(testdata<100){
 										temperature = testdata;
+//										init();
+										args.putInt(ARG_PARAM1, temperature);
+//										frag.setArguments(args);
 									}
-									else if(testdata>100){
+									else {
 										accdata = testdata;
+										int j=3;
+//										args.putInt(ARG_PARAM2, j);
 									}
 
-
-									final String temperstr = "Temperature : ";
-									final String accstr  = "Acc : ";
 									readBufferPosition = 0;
 
 									handler.post(new Runnable(){
@@ -369,8 +374,6 @@ public class MainActivity extends ActionBarActivity {
 		}
 	}
 
-
-
 	// onDestroy() : 어플이 종료될때 호출 되는 함수.
 	//               블루투스 연결이 필요하지 않는 경우 입출력 스트림 소켓을 닫아줌.
 	@Override
@@ -431,27 +434,34 @@ public class MainActivity extends ActionBarActivity {
 
 		public ViewPagerAdapter(FragmentManager fm) {
 			super(fm);
+
 		}
 
 		public Fragment getItem(int index) {
-			Fragment frag = null;
-
+//			Fragment frag = null;
 			if (index == 0) {
 				frag = new Fragment01();
-				Bundle args = new Bundle();
-
-				args.putInt(ARG_PARAM1, temperature);
+//				Bundle args = new Bundle();
+//				args.putInt(ARG_PARAM1, temperature);
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
+//				Bundle args = new Bundle();
+//				args.putInt(ARG_PARAM2, accdata);
+				frag.setArguments(args);
 			} else if (index == 2) {
 				frag = new Fragment03();
 			} else if (index == 3) {
 				frag = new Fragment04();
 			}
-
 			return frag;
 		}
+
+//		@Override
+//		public int getItemPosition(Object object)
+//		{
+//			return POSITION_NONE;
+//		}
 
 		@Override
 		public int getCount() {
