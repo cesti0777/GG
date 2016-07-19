@@ -79,6 +79,8 @@ public class MainActivity extends ActionBarActivity {
 	byte[] readBuffer;
 	int readBufferPosition;
 
+	int firealarm = 30;
+
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void createNotification() {  //알람 만들어주는 녀석
 
@@ -86,12 +88,9 @@ public class MainActivity extends ActionBarActivity {
 		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
 		taskStackBuilder.addNextIntent(intent);
 
-
 		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
 
 		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(123, PendingIntent.FLAG_UPDATE_CURRENT);
-
-
 		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
@@ -103,8 +102,12 @@ public class MainActivity extends ActionBarActivity {
 		nBuilder.setAutoCancel(true);
 
 		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
+		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
+
 		nBuilder.setVibrate(new long[] {100,2000,500,2000});
 		nBuilder.setLights(Color.RED, 400, 400);
+
+
 
 		nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
 
@@ -112,6 +115,9 @@ public class MainActivity extends ActionBarActivity {
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
 		nm.notify(0, notification);
+
+
+
 	}
 	//------------형준오빠
 
@@ -262,8 +268,16 @@ public class MainActivity extends ActionBarActivity {
 											// mStrDelimiter = '\n';
 //											mEditReceive.setText(mEditReceive.getText().toString() +temperstr+ temperature+ mStrDelimiter);
 //											mEditReceive.setText(mEditReceive.getText().toString() +accstr+ accdata+ mStrDelimiter);
-											if(temperature>20){
-												createNotification();
+											if(temperature>21){
+												if(firealarm == 30) {
+													createNotification();
+													firealarm=0;
+												}
+												else if(firealarm<30)
+												{
+													firealarm++;
+												}
+
 											}
 
 										}
