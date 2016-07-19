@@ -36,18 +36,15 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+
 /**
  * 툴바에 탭을 설정하는 방법을 알 수 있습니다.
- * 
+ *
  * @author Mike
  */
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
-	private static final String ARG_PARAM2 = "심박수";
-	private static final String ARG_PARAM3 = "움직임";
-	private static final String ARG_PARAM4 = "접근금지";
-	Bundle args = new Bundle();
-	Fragment frag = null;
+
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
 	 */
@@ -156,6 +153,8 @@ public class MainActivity extends ActionBarActivity {
 		checkBluetooth();
 	}
 
+
+
 	//형준 블루투스
 
 	// 블루투스 장치의 이름이 주어졌을때 해당 블루투스 장치 객체를 페어링 된 장치 목록에서 찾아내는 코드.
@@ -245,17 +244,14 @@ public class MainActivity extends ActionBarActivity {
 									//StringTokenizer stdata = new StringTokenizer(data, "\n");
 									//String testdata = stdata.nextToken();
 									final int testdata = Integer.valueOf(data);
+
 									if(testdata<100){
 										temperature = testdata;
-//										init();
-										args.putInt(ARG_PARAM1, temperature);
-//										frag.setArguments(args);
 									}
-									else {
+									else if(testdata>100){
 										accdata = testdata;
-										int j=3;
-//										args.putInt(ARG_PARAM2, j);
 									}
+
 
 									readBufferPosition = 0;
 
@@ -263,9 +259,14 @@ public class MainActivity extends ActionBarActivity {
 										// 수신된 문자열 데이터에 대한 처리.
 										@Override
 										public void run() {
+
+
+											pagerAdapter.notifyDataSetChanged();
+
+
 											// mStrDelimiter = '\n';
-//											mEditReceive.setText(mEditReceive.getText().toString() +temperstr+ temperature+ mStrDelimiter);
-//											mEditReceive.setText(mEditReceive.getText().toString() +accstr+ accdata+ mStrDelimiter);
+//                                 mEditReceive.setText(mEditReceive.getText().toString() +temperstr+ temperature+ mStrDelimiter);
+//                                 mEditReceive.setText(mEditReceive.getText().toString() +accstr+ accdata+ mStrDelimiter);
 											if(temperature>20){
 												createNotification();
 											}
@@ -374,6 +375,8 @@ public class MainActivity extends ActionBarActivity {
 		}
 	}
 
+
+
 	// onDestroy() : 어플이 종료될때 호출 되는 함수.
 	//               블루투스 연결이 필요하지 않는 경우 입출력 스트림 소켓을 닫아줌.
 	@Override
@@ -430,38 +433,39 @@ public class MainActivity extends ActionBarActivity {
 	/**
 	 * 뷰페이저 어댑터를 정의합니다.
 	 */
+
+
 	private class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 		public ViewPagerAdapter(FragmentManager fm) {
 			super(fm);
+		}
 
+		public int getItemPosition(Object object) {
+			return POSITION_NONE;
 		}
 
 		public Fragment getItem(int index) {
-//			Fragment frag = null;
+			Fragment frag = null;
+
 			if (index == 0) {
 				frag = new Fragment01();
-//				Bundle args = new Bundle();
-//				args.putInt(ARG_PARAM1, temperature);
+
+				Bundle args = new Bundle();
+				args.putInt(ARG_PARAM1, temperature);
 				frag.setArguments(args);
+
+
 			} else if (index == 1) {
 				frag = new Fragment02();
-//				Bundle args = new Bundle();
-//				args.putInt(ARG_PARAM2, accdata);
-				frag.setArguments(args);
 			} else if (index == 2) {
 				frag = new Fragment03();
 			} else if (index == 3) {
 				frag = new Fragment04();
 			}
+
 			return frag;
 		}
-
-//		@Override
-//		public int getItemPosition(Object object)
-//		{
-//			return POSITION_NONE;
-//		}
 
 		@Override
 		public int getCount() {
@@ -497,12 +501,18 @@ public class MainActivity extends ActionBarActivity {
 
 		@Override
 		public void onTabSelected(MaterialTab tab) {
+
+			int position = tab.getPosition();
+			pagerAdapter.notifyDataSetChanged();
 			pager.setCurrentItem(tab.getPosition());
+
 		}
 
 		@Override
 		public void onTabReselected(MaterialTab tab) {
-
+			int position = tab.getPosition();
+			pagerAdapter.notifyDataSetChanged();
+			pager.setCurrentItem(tab.getPosition());
 		}
 
 		@Override
@@ -514,6 +524,7 @@ public class MainActivity extends ActionBarActivity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
+		getMenuInflater().inflate(R.menu.menu_test, menu);
 		return true;
 	}
 
@@ -531,4 +542,3 @@ public class MainActivity extends ActionBarActivity {
 
 
 }
-
