@@ -44,7 +44,7 @@ import java.util.UUID;
  */
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
-
+	private static final String ARG_PARAM3 = "움직임";
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
 	 */
@@ -521,16 +521,16 @@ public class MainActivity extends ActionBarActivity {
 
 			if (index == 0) {
 				frag = new Fragment01();
-
 				Bundle args = new Bundle();
 				args.putInt(ARG_PARAM1, temperature);
 				frag.setArguments(args);
-
-
 			} else if (index == 1) {
 				frag = new Fragment02();
 			} else if (index == 2) {
 				frag = new Fragment03();
+				Bundle args = new Bundle();
+				args.putInt(ARG_PARAM3, accdata);
+				frag.setArguments(args);
 			} else if (index == 3) {
 				frag = new Fragment04();
 			}
