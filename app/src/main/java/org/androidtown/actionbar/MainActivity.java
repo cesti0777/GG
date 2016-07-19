@@ -103,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
 		nBuilder.setContentTitle("베이비시터");
-		nBuilder.setContentText("아이가 타고있어요 (활활)");
+		nBuilder.setContentText("아이가 뜨거워요!!");
 		nBuilder.setSmallIcon(R.drawable.ic_stat_name);
 
 		nBuilder.setContentIntent(pendingIntent);
