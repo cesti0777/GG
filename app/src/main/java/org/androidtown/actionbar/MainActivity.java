@@ -36,15 +36,15 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-//zxczxc
+
 /**
  * 툴바에 탭을 설정하는 방법을 알 수 있습니다.
- * 
+ *
  * @author Mike
  */
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
-
+	private static final String ARG_PARAM3 = "움직임";
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
 	 */
@@ -103,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
 		nBuilder.setContentTitle("베이비시터");
-		nBuilder.setContentText("아이가 타고있어요 (활활)");
+		nBuilder.setContentText("아이가 뜨거워요!!");
 		nBuilder.setSmallIcon(R.drawable.ic_stat_name);
 
 		nBuilder.setContentIntent(pendingIntent);
@@ -206,6 +206,8 @@ public class MainActivity extends ActionBarActivity {
 		checkBluetooth();
 	}
 
+
+
 	//형준 블루투스
 
 	// 블루투스 장치의 이름이 주어졌을때 해당 블루투스 장치 객체를 페어링 된 장치 목록에서 찾아내는 코드.
@@ -304,10 +306,10 @@ public class MainActivity extends ActionBarActivity {
 										acccount++;
 									}
 
-									if(acccount>50) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
-										accnoti = accdatas[50]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
+									if(acccount>10) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
+										accnoti = accdatas[10]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
 										acccount = 0;
-										accdatas[50]=0;
+										accdatas[10]=0;
 										accdatas[0]=0;
 										accok = true;
 									}
@@ -316,8 +318,10 @@ public class MainActivity extends ActionBarActivity {
 
 									handler.post(new Runnable(){
 										// 수신된 문자열 데이터에 대한 처리.
+
 										@Override
 										public void run() {
+											pagerAdapter.notifyDataSetChanged();
 
 											if(temperature>21){
 												if(firealarm == 30) {
@@ -336,6 +340,7 @@ public class MainActivity extends ActionBarActivity {
 													accok=false;
 												}
 												}
+
 											}
 
 
@@ -499,10 +504,16 @@ public class MainActivity extends ActionBarActivity {
 	/**
 	 * 뷰페이저 어댑터를 정의합니다.
 	 */
+
+
 	private class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 		public ViewPagerAdapter(FragmentManager fm) {
 			super(fm);
+		}
+
+		public int getItemPosition(Object object) {
+			return POSITION_NONE;
 		}
 
 		public Fragment getItem(int index) {
@@ -511,13 +522,15 @@ public class MainActivity extends ActionBarActivity {
 			if (index == 0) {
 				frag = new Fragment01();
 				Bundle args = new Bundle();
-
 				args.putInt(ARG_PARAM1, temperature);
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
 			} else if (index == 2) {
 				frag = new Fragment03();
+				Bundle args = new Bundle();
+				args.putInt(ARG_PARAM3, accdata);
+				frag.setArguments(args);
 			} else if (index == 3) {
 				frag = new Fragment04();
 			}
@@ -559,12 +572,18 @@ public class MainActivity extends ActionBarActivity {
 
 		@Override
 		public void onTabSelected(MaterialTab tab) {
+
+			int position = tab.getPosition();
+			pagerAdapter.notifyDataSetChanged();
 			pager.setCurrentItem(tab.getPosition());
+
 		}
 
 		@Override
 		public void onTabReselected(MaterialTab tab) {
-
+			int position = tab.getPosition();
+			pagerAdapter.notifyDataSetChanged();
+			pager.setCurrentItem(tab.getPosition());
 		}
 
 		@Override
@@ -576,6 +595,7 @@ public class MainActivity extends ActionBarActivity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
+		getMenuInflater().inflate(R.menu.menu_test, menu);
 		return true;
 	}
 
@@ -593,4 +613,3 @@ public class MainActivity extends ActionBarActivity {
 
 
 }
-
