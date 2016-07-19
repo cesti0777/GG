@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
 	ViewPagerAdapter pagerAdapter;
 	MaterialTabHost tabhost;
 
-	// 형준오빠--------------------
+	// 형준--------------------
 	static final int REQUEST_ENABLE_BT = 10;  // 사용자 정의 함수로 블루투스 활성 상태의 변경 결과를 App으로 알려줄때 식별자로 사용됨 (0보다 커야함)
 	int mPariedDeviceCount = 0;
 	Set<BluetoothDevice> mDevices;
@@ -79,10 +79,18 @@ public class MainActivity extends ActionBarActivity {
 	byte[] readBuffer;
 	int readBufferPosition;
 
+	//온도 알람에 대한 주기 설정
 	int firealarm = 30;
 
+	//움직임 알람에 대한 주기 설정
+	int accdatas[] = new int[100];  //움직임 알람에 대한 갑 저장 배열
+	int acccount=0; //배열 인자값
+	int accnoti; //움직임 인자값 계산 하기 위한 변수
+	boolean accok=false; //중복 알람을 방지하기 위한 boolean값
+
+
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	public void createNotification() {  //알람 만들어주는 녀석
+	public void createfireNotification() {  //온도알람 만들어주는 녀석
 
 		Intent intent = new Intent(MainActivity.this, MainActivity.class);
 		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
@@ -119,7 +127,46 @@ public class MainActivity extends ActionBarActivity {
 
 
 	}
-	//------------형준오빠
+
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	public void createaccNotification() {  //움직임알람 만들어주는 녀석
+
+		Intent intent = new Intent(MainActivity.this, MainActivity.class);
+		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
+		taskStackBuilder.addNextIntent(intent);
+
+		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
+
+		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(123, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
+		nBuilder.setContentTitle("베이비시터");
+		nBuilder.setContentText("아이가 안움직여요!!");
+		nBuilder.setSmallIcon(R.drawable.ic_stat_name);
+
+		nBuilder.setContentIntent(pendingIntent);
+		nBuilder.setAutoCancel(true);
+
+		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
+		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
+
+		nBuilder.setVibrate(new long[] {100,2000,500,2000});
+		nBuilder.setLights(Color.RED, 400, 400);
+
+
+
+		nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
+
+		Notification notification = nBuilder.build();
+		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+		nm.notify(0, notification);
+
+
+
+	}
+	//------------형준
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -245,8 +292,7 @@ public class MainActivity extends ActionBarActivity {
 									System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
 
 									final String data = new String(encodedBytes, 0, encodedBytes.length-1);
-									//StringTokenizer stdata = new StringTokenizer(data, "\n");
-									//String testdata = stdata.nextToken();
+
 									final int testdata = Integer.valueOf(data);
 
 									if(testdata<100){
@@ -254,33 +300,44 @@ public class MainActivity extends ActionBarActivity {
 									}
 									else if(testdata>100){
 										accdata = testdata;
+										accdatas[acccount] = accdata;  //배열에 움직임값 삽입
+										acccount++;
 									}
 
+									if(acccount>50) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
+										accnoti = accdatas[50]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
+										acccount = 0;
+										accdatas[50]=0;
+										accdatas[0]=0;
+										accok = true;
+									}
 
-									final String temperstr = "Temperature : ";
-									final String accstr  = "Acc : ";
 									readBufferPosition = 0;
 
 									handler.post(new Runnable(){
 										// 수신된 문자열 데이터에 대한 처리.
 										@Override
 										public void run() {
-											// mStrDelimiter = '\n';
-//											mEditReceive.setText(mEditReceive.getText().toString() +temperstr+ temperature+ mStrDelimiter);
-//											mEditReceive.setText(mEditReceive.getText().toString() +accstr+ accdata+ mStrDelimiter);
+
 											if(temperature>21){
 												if(firealarm == 30) {
-													createNotification();
+													createfireNotification();
 													firealarm=0;
 												}
 												else if(firealarm<30)
 												{
 													firealarm++;
 												}
-
 											}
 
-										}
+											if(accok==true){
+												if(accnoti>1 && accnoti<30) {  //움직임이 없으면
+													createaccNotification(); //움직임이 확인
+													accok=false;
+												}
+												}
+											}
+
 
 									});
 								}

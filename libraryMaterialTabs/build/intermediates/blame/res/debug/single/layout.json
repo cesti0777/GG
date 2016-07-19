@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
-        "source": "D:\\GitHubGP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
-    },
-    {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
         "source": "C:\\git\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
+    },
+    {
+        "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
+        "source": "D:\\GitHubGP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
