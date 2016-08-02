@@ -89,11 +89,16 @@ public class MainActivity extends ActionBarActivity {
 	boolean accok=false; //중복 알람을 방지하기 위한 boolean값
 
 
+
+
+
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void createfireNotification() {  //온도알람 만들어주는 녀석
 
 		Intent intent = new Intent(MainActivity.this, MainActivity.class);
+
 		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
+
 		taskStackBuilder.addNextIntent(intent);
 
 		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
@@ -137,8 +142,8 @@ public class MainActivity extends ActionBarActivity {
 
 		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
 
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(123, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(456, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 333, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
 		nBuilder.setContentTitle("베이비시터");
@@ -161,7 +166,7 @@ public class MainActivity extends ActionBarActivity {
 		Notification notification = nBuilder.build();
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
-		nm.notify(0, notification);
+		nm.notify(1, notification);
 
 
 
@@ -203,6 +208,7 @@ public class MainActivity extends ActionBarActivity {
 
 		// 처음 선택된 탭을 지정합니다.
 		tabhost.setSelectedNavigationItem(0);
+
 		checkBluetooth();
 	}
 
@@ -412,6 +418,7 @@ public class MainActivity extends ActionBarActivity {
 		builder.setCancelable(false);  // 뒤로 가기 버튼 사용 금지.
 		AlertDialog alert = builder.create();
 		alert.show();
+
 	}
 
 
