@@ -209,7 +209,7 @@ public class MainActivity extends ActionBarActivity {
 		// 처음 선택된 탭을 지정합니다.
 		tabhost.setSelectedNavigationItem(0);
 
-		checkBluetooth();
+		//checkBluetooth();
 	}
 
 
