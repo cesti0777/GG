@@ -335,7 +335,7 @@ public class MainActivity extends ActionBarActivity {
 											}
 
 											if(accok==true){
-												if(accnoti>1 && accnoti<30) {  //움직임이 없으면
+												if(accnoti>1 && accnoti<100) {  //움직임이 없으면
 													createaccNotification(); //움직임이 확인
 													accok=false;
 												}

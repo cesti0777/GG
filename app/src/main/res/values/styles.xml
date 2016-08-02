@@ -1,7 +1,9 @@
 <resources>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
     </style>
-
+    <style name="SplashTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@drawable/loading</item>
+    </style>
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:textAppearance">@style/CustomTextAppearance</item>
