@@ -12,6 +12,8 @@ import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,9 +22,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.neokree.materialtabs.MaterialTab;
@@ -175,8 +180,47 @@ public class MainActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		// Get the application context
+
+//		// Get the activity
+//		mActivity = MainActivity.this;
+
+		// Initialize a new TextView widget for action bar custom view
+		TextView tv = new TextView(getApplicationContext());
+
+		// Initialize a new LayoutParams object
+		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+				ActionBar.LayoutParams.MATCH_PARENT, // Width of TextView
+				ActionBar.LayoutParams.WRAP_CONTENT // Height of TextView
+		);
+
+		// Set the TextView text color
+		tv.setTextColor(Color.rgb(69,103,227));
+		// Set the TextView text as action bar title
+		tv.setText("BabySitter");
+		// Set the height and width of TextView
+		tv.setLayoutParams(lp);
+		// Display a custom font in TextView
+		Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Typo_SsangmunDongB.ttf");
+		// Set the TextView font
+		tv.setTypeface(typeface);
+		// Get the action bar
+		try{
+			// Set the action bar background color
+			getSupportActionBar().setBackgroundDrawable(
+					new ColorDrawable(Color.WHITE)
+			);
+			// Set the action bar display option
+			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+			// Set the action bar custom view
+			getSupportActionBar().setCustomView(tv);
+		}catch (NullPointerException e){
+			e.printStackTrace();
+		}
 
 		tabhost = (MaterialTabHost) this.findViewById(R.id.tabhost);
 		pager = (ViewPager) this.findViewById(R.id.pager);
@@ -192,10 +236,9 @@ public class MainActivity extends ActionBarActivity {
 		});
 
 		// 탭의 글자색을 지정합니다.
-		tabhost.setTextColor(Color.RED);
-
+		tabhost.setTextColor(Color.WHITE);
 		// 탭의 배경색을 지정합니다.
-		tabhost.setPrimaryColor(Color.CYAN);
+		tabhost.setPrimaryColor(Color.rgb(69,103,227));
 
 		// 탭을 추가합니다.
 		for (int i = 0; i < pagerAdapter.getCount(); i++) {
@@ -211,7 +254,6 @@ public class MainActivity extends ActionBarActivity {
 
 		//checkBluetooth();
 	}
-
 
 
 	//형준 블루투스

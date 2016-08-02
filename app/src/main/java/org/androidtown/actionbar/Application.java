@@ -7,9 +7,9 @@ public final class Application extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FontsOverride.setDefaultFont(this, "DEFAULT", "HoonWhitecatR.ttf");
-        FontsOverride.setDefaultFont(this, "MONOSPACE", "HoonWhitecatR.ttf");
-        FontsOverride.setDefaultFont(this, "SERIF", "HoonWhitecatR.ttf");
-        FontsOverride.setDefaultFont(this, "SANS_SERIF", "HoonWhitecatR.ttf");
+        FontsOverride.setDefaultFont(this, "DEFAULT", "Typo_SsangmunDongB.ttf");
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "Typo_SsangmunDongB.ttf");
+        FontsOverride.setDefaultFont(this, "SERIF", "Typo_SsangmunDongB.ttf");
+        FontsOverride.setDefaultFont(this, "SANS_SERIF", "Typo_SsangmunDongB.ttf");
     }
 }
