@@ -612,7 +612,7 @@ public class MainActivity extends ActionBarActivity {
 		switch(curId){
 			case R.id.menu_settings:
 				Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-				startActivityForResult(intent, REQUEST_CODE_SETTINGS);
+				startActivity(intent);
 				break;
 		}
 		return true;
