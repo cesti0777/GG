@@ -602,7 +602,7 @@ public class MainActivity extends ActionBarActivity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
-		getMenuInflater().inflate(R.menu.menu_test, menu);
+		//getMenuInflater().inflate(R.menu.menu_test, menu);
 		return true;
 	}
 
@@ -614,6 +614,19 @@ public class MainActivity extends ActionBarActivity {
 				Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
 				startActivity(intent);
 				break;
+			case R.id.bluetooth_button:
+				BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+
+				//현재 Bluetooth가 켜져 있는지, 혹은 켜는 중인지 확인 한다.
+				if(adapter.getState() == BluetoothAdapter.STATE_TURNING_ON ||
+						adapter.getState() == BluetoothAdapter.STATE_ON)
+				{
+					adapter.disable();   // Bluetooth Off
+				}
+				else
+				{
+					adapter.enable();     // Bluetooth On
+				}
 		}
 		return true;
 	}
