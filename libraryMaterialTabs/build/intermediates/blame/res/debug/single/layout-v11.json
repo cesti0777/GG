@@ -8,6 +8,10 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout-v11\\abc_screen_content_include.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout-v11\\abc_screen_content_include.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout-v11\\abc_screen_content_include.xml"
+    },
+    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout-v11\\abc_screen_content_include.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout-v11\\abc_screen_content_include.xml"
     },

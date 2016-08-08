@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Git\GP\libraryMaterialTabs\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Git\GP\libraryMaterialTabs\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\project\libraryMaterialTabs\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\project\libraryMaterialTabs\src\debug\shaders"/></dataSet></merger>
