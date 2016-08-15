@@ -11,12 +11,14 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -93,8 +95,15 @@ public class MainActivity extends ActionBarActivity {
 	int accdatas[] = new int[100];  //움직임 알람에 대한 갑 저장 배열
 	int acccount=0; //배열 인자값
 	int accnoti; //움직임 인자값 계산 하기 위한 변수
+	int acctemp;
+	boolean accdanger = false;
 	boolean accok=false; //중복 알람을 방지하기 위한 boolean값
 
+	boolean alarmOnOff;
+	boolean tAlarm;
+	boolean pAlarm;
+	boolean mAlarm;
+	boolean aAlarm;
 
 
 
@@ -185,6 +194,22 @@ public class MainActivity extends ActionBarActivity {
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		alarmOnOff = prefs.getBoolean("alarmOnOff", false);
+		tAlarm = prefs.getBoolean("tAlarm", false);
+		pAlarm = prefs.getBoolean("pAlarm", false);
+		mAlarm = prefs.getBoolean("mAlarm", false);
+		aAlarm = prefs.getBoolean("aAlarm", false);
+
+
+		Toast.makeText(getApplicationContext(),
+				"값 : " + alarmOnOff
+						+ " " + tAlarm
+						+ " " + pAlarm
+						+ " " + mAlarm
+						+ " " + aAlarm
+					, Toast.LENGTH_LONG).show();
 
 		// Get the application context
 
@@ -356,16 +381,35 @@ public class MainActivity extends ActionBarActivity {
 									else if(testdata>100){
 										accdata = testdata;
 										accdatas[acccount] = accdata;  //배열에 움직임값 삽입
+
+										if(acccount>0){
+											if(accdatas[acccount]-accdatas[acccount-1]>150) {
+												accdanger = true;
+												acctemp = acccount;
+											}
+										}
+
 										acccount++;
 									}
 
+									if(acccount>10){
+										if(accdatas[acctemp]-accdatas[acccount]>200){
+											accok = true;
+										}
+										acccount =0;
+									}
+
+
+
+									/*
 									if(acccount>10) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
 										accnoti = accdatas[10]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
 										acccount = 0;
 										accdatas[10]=0;
 										accdatas[0]=0;
 										accok = true;
-									}
+									}*/
+
 
 									readBufferPosition = 0;
 
@@ -378,7 +422,9 @@ public class MainActivity extends ActionBarActivity {
 
 											if(temperature>21){
 												if(firealarm == 30) {
-													createfireNotification();
+													if(tAlarm == true && alarmOnOff == true) {
+														createfireNotification();
+													}
 													firealarm=0;
 												}
 												else if(firealarm<30)
@@ -389,7 +435,9 @@ public class MainActivity extends ActionBarActivity {
 
 											if(accok==true){
 												if(accnoti>1 && accnoti<100) {  //움직임이 없으면
-													createaccNotification(); //움직임이 확인
+													if (mAlarm == true && alarmOnOff == true) {
+														createaccNotification(); //움직임이 확인
+													}
 													accok=false;
 												}
 												}

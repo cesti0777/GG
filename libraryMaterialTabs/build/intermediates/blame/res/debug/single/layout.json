@@ -8,16 +8,28 @@
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_content_include.xml"
     },
     {
+        "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab_icon.xml",
@@ -44,20 +56,44 @@
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
@@ -68,12 +104,12 @@
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab_icon.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
@@ -88,16 +124,36 @@
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_simple_dropdown_hint.xml"
     },
     {
-        "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
+        "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
@@ -110,6 +166,10 @@
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
@@ -126,6 +186,10 @@
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
@@ -176,6 +240,18 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab_icon.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab_icon.xml"
+    },
+    {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_layout.xml"
     },
@@ -190,6 +266,10 @@
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
@@ -232,8 +312,20 @@
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_dropdown_hint.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_simple_dropdown_hint.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
         "source": "C:\\git\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
@@ -252,12 +344,24 @@
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_dropdown_hint.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_simple_dropdown_hint.xml"
     },
     {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
@@ -276,16 +380,32 @@
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_include.xml"
+    },
+    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tabhost.xml",
@@ -300,6 +420,14 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_simple_dropdown_hint.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
@@ -312,12 +440,28 @@
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tabhost.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tabhost.xml"
+    },
+    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
@@ -332,6 +476,10 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
@@ -342,6 +490,14 @@
     {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple.xml"
     },
     {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
@@ -358,6 +514,18 @@
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_include.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab_icon.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab_icon.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_include.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -388,12 +556,28 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_search_view.xml"
+    },
+    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
         "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
@@ -404,6 +588,10 @@
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
@@ -412,12 +600,32 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_search_view.xml"
+    },
+    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tabhost.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tabhost.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tabhost.xml",
         "source": "D:\\GitHubGP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tabhost.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -430,5 +638,13 @@
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\material_tab.xml",
+        "source": "D:\\project\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab.xml"
+    },
+    {
+        "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     }
 ]

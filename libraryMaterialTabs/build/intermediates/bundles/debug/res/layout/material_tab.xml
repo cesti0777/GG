@@ -14,7 +14,7 @@
 	     android:layout_height="match_parent"
 	     android:gravity="center"
 	     android:textAppearance="?android:attr/textAppearanceMedium"
-	     android:textSize="@dimen/materialTextTab" />
+	     android:textSize="18dp" />
 	 
 	 <ImageView
 	     android:id="@+id/selector"
