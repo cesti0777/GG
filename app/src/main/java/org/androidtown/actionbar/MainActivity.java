@@ -271,7 +271,8 @@ public class MainActivity extends ActionBarActivity {
 		tabhost.setPrimaryColor(Color.rgb(69,103,227));
 
 		// 탭을 추가합니다.
-		for (int i = 0; i < pagerAdapter.getCount(); i++) {
+//		for (int i = 0; i < pagerAdapter.getCount(); i++) { //공모전에는 해당ㄴㄴ
+		for (int i = 0; i < 3; i++) {
 			MaterialTab tab = tabhost.newTab();
 			tab.setText(pagerAdapter.getPageTitle(i));
 			tab.setTabListener(new ProductTabListener());
@@ -654,8 +655,8 @@ public class MainActivity extends ActionBarActivity {
 					return "심박수";
 				case 2:
 					return "움직임";
-				case 3:
-					return "접근금지";
+//				case 3:
+//					return "접근금지";
 				default:
 					return null;
 			}
