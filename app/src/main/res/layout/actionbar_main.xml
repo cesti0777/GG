@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="60dp">
+<ImageView
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:background="@drawable/icare"
+    android:id="@+id/imageView"
+    android:layout_marginTop="5dp"/>
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="match_parent"
+     android:text="아이케어"
+     android:textSize="30dp"
+     android:layout_marginTop="10dp"
+     android:layout_marginLeft="10dp"
+     android:textColor="#4567E3"
+     android:layout_alignParentTop="true"
+     android:layout_toRightOf="@+id/imageView"
+     android:layout_toEndOf="@+id/imageView" />
+</RelativeLayout>

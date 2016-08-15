@@ -24,10 +24,12 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.internal.view.menu.ActionMenuItemView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.neokree.materialtabs.MaterialTab;
@@ -187,37 +189,40 @@ public class MainActivity extends ActionBarActivity {
 		// Get the application context
 
 //		// Get the activity
-//		mActivity = MainActivity.this;
-
-		// Initialize a new TextView widget for action bar custom view
-		TextView tv = new TextView(getApplicationContext());
+////		mActivity = MainActivity.this;
+////		 Initialize a new TextView widget for action bar custom view
+//		TextView tv = new TextView(getApplicationContext());
 
 		// Initialize a new LayoutParams object
 		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
 				ActionBar.LayoutParams.MATCH_PARENT, // Width of TextView
 				ActionBar.LayoutParams.WRAP_CONTENT // Height of TextView
 		);
-
-		// Set the TextView text color
-		tv.setTextColor(Color.rgb(69,103,227));
-		// Set the TextView text as action bar title
-		tv.setText("BabySitter");
-		// Set the height and width of TextView
-		tv.setLayoutParams(lp);
-		// Display a custom font in TextView
-		Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Typo_SsangmunDongB.ttf");
-		// Set the TextView font
-		tv.setTypeface(typeface);
+////		// Set the TextView text color
+////		tv.setTextColor(Color.rgb(69,103,227));
+////		// Set the TextView text as action bar title
+////		tv.setTextSize(30);
+////		tv.setText("아이케어");
+////		// Set the height and width of TextView
+////		tv.setLayoutParams(lp);
+////		// Display a custom font in TextView
+//		Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Typo_SsangmunDongB.ttf");
+//		// Set the TextView font
+//		tv.setTypeface(typeface);
 		// Get the action bar
 		try{
 			// Set the action bar background color
 			getSupportActionBar().setBackgroundDrawable(
 					new ColorDrawable(Color.WHITE)
 			);
+			getSupportActionBar().setLogo(R.drawable.icare);
 			// Set the action bar display option
 			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 			// Set the action bar custom view
-			getSupportActionBar().setCustomView(tv);
+//			getSupportActionBar().setCustomView(tv);
+			View mCustomView = LayoutInflater.from(this).inflate(R.layout.actionbar_main, null);
+			getSupportActionBar().setCustomView(mCustomView);
+//			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_USE_LOGO, ActionBar.DISPLAY_SHOW_TITLE);
 		}catch (NullPointerException e){
 			e.printStackTrace();
 		}
@@ -245,7 +250,6 @@ public class MainActivity extends ActionBarActivity {
 			MaterialTab tab = tabhost.newTab();
 			tab.setText(pagerAdapter.getPageTitle(i));
 			tab.setTabListener(new ProductTabListener());
-
 			tabhost.addTab(tab);
 		}
 
@@ -253,6 +257,7 @@ public class MainActivity extends ActionBarActivity {
 		tabhost.setSelectedNavigationItem(0);
 
 		//checkBluetooth();
+
 	}
 
 
@@ -658,20 +663,29 @@ public class MainActivity extends ActionBarActivity {
 				break;
 			case R.id.bluetooth_button:
 				BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-
+				ActionMenuItemView a = (ActionMenuItemView) findViewById(R.id.bluetooth_button);
+				Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Typo_SsangmunDongB.ttf");
 				//현재 Bluetooth가 켜져 있는지, 혹은 켜는 중인지 확인 한다.
 				if(adapter.getState() == BluetoothAdapter.STATE_TURNING_ON ||
-						adapter.getState() == BluetoothAdapter.STATE_ON)
-				{
+						adapter.getState() == BluetoothAdapter.STATE_ON) {
 					adapter.disable();   // Bluetooth Off
+					a.setText("OFF");
+					a.setTextColor(Color.BLACK);
+					a.setTextSize(20);
+					a.setTypeface(typeface);
+//					a.setBackgroundResource(R.drawable.bluetooth_off);
 				}
 				else
 				{
 					adapter.enable();     // Bluetooth On
+					a.setText("ON");
+					a.setTextColor(Color.BLUE);
+					a.setTextSize(20);
+					a.setTypeface(typeface);
+//					a.setBackgroundResource(R.drawable.bluetooth_on);
 				}
 		}
 		return true;
 	}
-
 
 }

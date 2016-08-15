@@ -6,7 +6,7 @@
     <com.neokree.materialtabs.MaterialTabHost
         android:id="@+id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="55dp"
         android:layout_centerHorizontal="true" >
     </com.neokree.materialtabs.MaterialTabHost>
     
