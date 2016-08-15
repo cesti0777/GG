@@ -12,11 +12,11 @@ public class Fragment03 extends Fragment {
 	private static final String ARG_PARAM3 = "움직임";
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
-		int num = 100;
+		int  num = getArguments().getInt(ARG_PARAM3);
 		View view = inflater.inflate(R.layout.frag03, container, false);
 		TextView tv = (TextView) view.findViewById(R.id.text03);
 		tv.setText("움직임:"+num);
-		ImageView iv = (ImageView) view.findViewById(R.id.iv);
+		ImageView iv = (ImageView) view.findViewById(R.id.iv3);
 		if(num >= 1000)
 		{
 			iv.setImageResource(R.drawable.active);
