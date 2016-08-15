@@ -1,5 +1,8 @@
 package org.androidtown.actionbar;
 
+
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
@@ -29,4 +32,26 @@ public class SettingsActivity extends PreferenceActivity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+        boolean alarmOnOff = pref.getBoolean("alarmOnOff", false);
+        boolean talarm = pref.getBoolean("talarm", false);
+        boolean palarm = pref.getBoolean("palarm", false);
+        boolean malarm = pref.getBoolean("malarm", false);
+        boolean aalarm = pref.getBoolean("aalarm", false);
+
+
+        editor.putBoolean("alarmOnOff", alarmOnOff);
+        editor.putBoolean("talarm", talarm);
+        editor.putBoolean("palarm", palarm);
+        editor.putBoolean("malarm", malarm);
+        editor.putBoolean("aalarm", aalarm);
+
+
+        editor.commit();
+    }
 }

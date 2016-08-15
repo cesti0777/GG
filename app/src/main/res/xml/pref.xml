@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <EditTextPreference android:title="Your Name"
-        android:key="username"
-        android:summary="Please provide your username"></EditTextPreference>
-    <CheckBoxPreference android:title="Application Updates"
-        android:defaultValue="false"
-        android:summary="This option if selected will allow the application to check for latest versions."
-        android:key="applicationUpdates" />
-    <ListPreference     android:title="Download Details"
-        android:summary="Select the kind of data that you would like to download"
-        android:key="downloadType"
-        android:defaultValue="1"
-        android:entries="@array/listArray"
-        android:entryValues="@array/listValues" />
+    <PreferenceCategory android:title="상태이상 알람" >
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="alarmOnOff"
+            android:summary="상태이상 알람를 설정합니다"
+            android:switchTextOff="OFF"
+            android:switchTextOn="ON"
+            android:title="상태이상 알람 설정" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="alarmOnOff"
+            android:key="tAlarm"
+            android:title="체온이상 알람 사용" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="alarmOnOff"
+            android:key="pAlarm"
+            android:title="심박이상 알람 사용" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="alarmOnOff"
+            android:key="mAlarm"
+            android:title="움직임이상 알람 사용" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="alarmOnOff"
+            android:key="aAlarm"
+            android:title="접근금지구역 알람 사용" />
+    </PreferenceCategory>
 </PreferenceScreen>
