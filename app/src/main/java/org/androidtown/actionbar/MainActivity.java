@@ -104,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
 	boolean pAlarm;
 	boolean mAlarm;
 	boolean aAlarm;
-
+	int SEEKBAR_VALUE;
 
 
 
@@ -201,6 +201,7 @@ public class MainActivity extends ActionBarActivity {
 		pAlarm = prefs.getBoolean("pAlarm", false);
 		mAlarm = prefs.getBoolean("mAlarm", false);
 		aAlarm = prefs.getBoolean("aAlarm", false);
+		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 37);
 
 
 		Toast.makeText(getApplicationContext(),
@@ -209,6 +210,7 @@ public class MainActivity extends ActionBarActivity {
 						+ " " + pAlarm
 						+ " " + mAlarm
 						+ " " + aAlarm
+						+ " " + SEEKBAR_VALUE
 					, Toast.LENGTH_LONG).show();
 
 		// Get the application context

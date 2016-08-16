@@ -13,6 +13,15 @@
             android:dependency="alarmOnOff"
             android:key="tAlarm"
             android:title="체온이상 알람 사용" />
+        <org.androidtown.actionbar.SeekBarPreference
+            android:defaultValue="50"
+            android:dialogMessage="@string/settings_dialog_message"
+            android:dependency="tAlarm"
+            android:key="SEEKBAR_VALUE"
+            android:max="100"
+            android:summary="@string/settings_summary"
+            android:text="@string/settings_unit"
+            android:title="@string/settings_title" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="alarmOnOff"
