@@ -5,12 +5,28 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Fragment04 extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
-		return inflater.inflate( R.layout.frag04, container, false );
+		int  num = 0; // 움직임은 아직 세팅 전
+		View view = inflater.inflate(R.layout.frag04, container, false);
+		TextView tv = (TextView) view.findViewById(R.id.text04);
+		ImageView iv = (ImageView) view.findViewById(R.id.iv4);
+		if(num >= 1000)
+		{
+			iv.setImageResource(R.drawable.warning);
+			tv.setText("아이가 접근금지 구역에 접근중!");
+		}
+		else
+		{
+			iv.setImageResource(R.drawable.safe);
+			tv.setText(" 아이가 안전해요.");
+		}
+		return view;
 	}
 
 }
