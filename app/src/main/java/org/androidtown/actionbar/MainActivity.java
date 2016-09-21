@@ -286,7 +286,7 @@ public class MainActivity extends ActionBarActivity {
 		tabhost.setSelectedNavigationItem(0);
 
 		//checkBluetooth();
-		createaccNotification();
+		//createaccNotification();
 	}
 
 
