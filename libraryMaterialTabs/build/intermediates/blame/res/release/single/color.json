@@ -76,12 +76,12 @@
         "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
         "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
         "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\git\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "D:\\project\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",

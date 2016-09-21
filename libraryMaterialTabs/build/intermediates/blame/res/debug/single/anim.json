@@ -12,12 +12,12 @@
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
         "source": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "D:\\GitHubGP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\anim\\abc_slide_in_top.xml"
     },
     {
         "merged": "C:\\Users\\J Bin\\AndroidStudioProjects\\do it\\Part2\\chapter03\\SampleActionBar03\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
