@@ -54,6 +54,7 @@ import java.util.UUID;
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
 	private static final String ARG_PARAM3 = "움직임";
+
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
 	 */
@@ -272,7 +273,7 @@ public class MainActivity extends ActionBarActivity {
 
 		// 탭을 추가합니다.
 //		for (int i = 0; i < pagerAdapter.getCount(); i++) { //공모전에는 해당ㄴㄴ
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			MaterialTab tab = tabhost.newTab();
 			tab.setText(pagerAdapter.getPageTitle(i));
 			tab.setTabListener(new ProductTabListener());
@@ -379,7 +380,7 @@ public class MainActivity extends ActionBarActivity {
 									if(testdata<100){
 										temperature = testdata;
 									}
-									else if(testdata>100){
+									else {
 										accdata = testdata;
 										accdatas[acccount] = accdata;  //배열에 움직임값 삽입
 
@@ -637,7 +638,6 @@ public class MainActivity extends ActionBarActivity {
 			} else if (index == 3) {
 				frag = new Fragment04();
 			}
-
 			return frag;
 		}
 
@@ -655,8 +655,8 @@ public class MainActivity extends ActionBarActivity {
 					return "심박수";
 				case 2:
 					return "움직임";
-//				case 3:
-//					return "접근금지";
+				case 3:
+					return "접근금지";
 				default:
 					return null;
 			}
