@@ -190,6 +190,20 @@ public class MainActivity extends ActionBarActivity {
 	}
 	//------------형준
 
+	public void chagePrefValue() {
+		//기본 SharedPreference를 가져옴. (PreferenceActivity에서 설정한 pref)
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		//Preference 자료 수정을 위하여 editor 생성
+		alarmOnOff = prefs.getBoolean("alarmOnOff", false);
+		tAlarm = prefs.getBoolean("tAlarm", false);
+		pAlarm = prefs.getBoolean("pAlarm", false);
+		mAlarm = prefs.getBoolean("mAlarm", false);
+		aAlarm = prefs.getBoolean("aAlarm", false);
+		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 37);
+
+	}
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);
@@ -204,15 +218,6 @@ public class MainActivity extends ActionBarActivity {
 		aAlarm = prefs.getBoolean("aAlarm", false);
 		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 37);
 
-
-		Toast.makeText(getApplicationContext(),
-				"값 : " + alarmOnOff
-						+ " " + tAlarm
-						+ " " + pAlarm
-						+ " " + mAlarm
-						+ " " + aAlarm
-						+ " " + SEEKBAR_VALUE
-					, Toast.LENGTH_LONG).show();
 
 		// Get the application context
 
@@ -422,12 +427,25 @@ public class MainActivity extends ActionBarActivity {
 
 										@Override
 										public void run() {
+											chagePrefValue();
+
+											float minNormal = SEEKBAR_VALUE-1;
+											float maxNormal = SEEKBAR_VALUE+1;
+
 											pagerAdapter.notifyDataSetChanged();
 
-											if(temperature>21){
+											if(temperature<minNormal && temperature>maxNormal){
 												if(firealarm == 30) {
 													if(tAlarm == true && alarmOnOff == true) {
 														createfireNotification();
+														Toast.makeText(getApplicationContext(),
+																"값 : " + alarmOnOff
+																		+ " " + tAlarm
+																		+ " " + pAlarm
+																		+ " " + mAlarm
+																		+ " " + aAlarm
+																		+ " " + SEEKBAR_VALUE
+																, Toast.LENGTH_LONG).show();
 													}
 													firealarm=0;
 												}
@@ -734,6 +752,7 @@ public class MainActivity extends ActionBarActivity {
 					a.setTextSize(20);
 					a.setTypeface(typeface);
 //					a.setBackgroundResource(R.drawable.bluetooth_on);
+					checkBluetooth();
 				}
 		}
 		return true;

@@ -47,21 +47,6 @@ public class SettingsActivity extends PreferenceActivity {
         super.onStop();
         SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-
-        boolean alarmOnOff = pref.getBoolean("alarmOnOff", false);
-        boolean talarm = pref.getBoolean("talarm", false);
-        boolean palarm = pref.getBoolean("palarm", false);
-        boolean malarm = pref.getBoolean("malarm", false);
-        boolean aalarm = pref.getBoolean("aalarm", false);
-
-
-        editor.putBoolean("alarmOnOff", alarmOnOff);
-        editor.putBoolean("talarm", talarm);
-        editor.putBoolean("palarm", palarm);
-        editor.putBoolean("malarm", malarm);
-        editor.putBoolean("aalarm", aalarm);
-
-
         editor.commit();
     }
 }
