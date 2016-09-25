@@ -83,7 +83,10 @@ public class MainActivity extends ActionBarActivity {
 
 	char mCharDelimiter =  '\n';
 
-	int temperature, accdata;
+	double temperature;
+	int accdata;
+	int tempertmp1;
+	double tempertmp2;
 
 	Thread mWorkerThread = null;
 	byte[] readBuffer;
@@ -379,8 +382,10 @@ public class MainActivity extends ActionBarActivity {
 
 									final int testdata = Integer.valueOf(data);
 
-									if(testdata<100){
-										temperature = testdata;
+									if(testdata<450){
+										tempertmp1= testdata/10;
+										tempertmp2 = (testdata%10)*(0.1);
+										temperature = tempertmp1+tempertmp2;
 									}
 									else {
 										accdata = testdata;
@@ -424,7 +429,7 @@ public class MainActivity extends ActionBarActivity {
 										public void run() {
 											pagerAdapter.notifyDataSetChanged();
 
-											if(temperature>21){
+											if(temperature>30){
 												if(firealarm == 30) {
 													if(tAlarm == true && alarmOnOff == true) {
 														createfireNotification();
@@ -628,7 +633,8 @@ public class MainActivity extends ActionBarActivity {
 			if (index == 0) {
 				frag = new Fragment01();
 				Bundle args = new Bundle();
-				args.putInt(ARG_PARAM1, temperature);
+				args.putDouble(ARG_PARAM1, temperature);
+	;
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
@@ -734,6 +740,7 @@ public class MainActivity extends ActionBarActivity {
 					a.setTextSize(20);
 					a.setTypeface(typeface);
 //					a.setBackgroundResource(R.drawable.bluetooth_on);
+					checkBluetooth();
 				}
 		}
 		return true;
