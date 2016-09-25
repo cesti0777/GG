@@ -83,7 +83,10 @@ public class MainActivity extends ActionBarActivity {
 
 	char mCharDelimiter =  '\n';
 
-	int temperature, accdata;
+	double temperature;
+	int accdata;
+	int tempertmp1;
+	double tempertmp2;
 
 	Thread mWorkerThread = null;
 	byte[] readBuffer;
@@ -105,7 +108,7 @@ public class MainActivity extends ActionBarActivity {
 	boolean pAlarm;
 	boolean mAlarm;
 	boolean aAlarm;
-	int SEEKBAR_VALUE;
+	int SEEKBAR_VALUE_T;
 
 
 
@@ -199,7 +202,7 @@ public class MainActivity extends ActionBarActivity {
 		pAlarm = prefs.getBoolean("pAlarm", false);
 		mAlarm = prefs.getBoolean("mAlarm", false);
 		aAlarm = prefs.getBoolean("aAlarm", false);
-		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 37);
+		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 37);
 
 	}
 
@@ -216,7 +219,7 @@ public class MainActivity extends ActionBarActivity {
 		pAlarm = prefs.getBoolean("pAlarm", false);
 		mAlarm = prefs.getBoolean("mAlarm", false);
 		aAlarm = prefs.getBoolean("aAlarm", false);
-		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 37);
+		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 37);
 
 
 		// Get the application context
@@ -384,8 +387,10 @@ public class MainActivity extends ActionBarActivity {
 
 									final int testdata = Integer.valueOf(data);
 
-									if(testdata<100){
-										temperature = testdata;
+									if(testdata<450){
+										tempertmp1= testdata/10;
+										tempertmp2 = (testdata%10)*(0.1);
+										temperature = tempertmp1+tempertmp2;
 									}
 									else {
 										accdata = testdata;
@@ -429,12 +434,13 @@ public class MainActivity extends ActionBarActivity {
 										public void run() {
 											chagePrefValue();
 
-											float minNormal = SEEKBAR_VALUE-1;
-											float maxNormal = SEEKBAR_VALUE+1;
+											double minNormal = SEEKBAR_VALUE_T-0.4;
+											double maxNormal = SEEKBAR_VALUE_T+0.4;
 
 											pagerAdapter.notifyDataSetChanged();
 
 											if(temperature<minNormal && temperature>maxNormal){
+
 												if(firealarm == 30) {
 													if(tAlarm == true && alarmOnOff == true) {
 														createfireNotification();
@@ -444,7 +450,7 @@ public class MainActivity extends ActionBarActivity {
 																		+ " " + pAlarm
 																		+ " " + mAlarm
 																		+ " " + aAlarm
-																		+ " " + SEEKBAR_VALUE
+																		+ " " + SEEKBAR_VALUE_T
 																, Toast.LENGTH_LONG).show();
 													}
 													firealarm=0;
@@ -646,7 +652,8 @@ public class MainActivity extends ActionBarActivity {
 			if (index == 0) {
 				frag = new Fragment01();
 				Bundle args = new Bundle();
-				args.putInt(ARG_PARAM1, temperature);
+				args.putDouble(ARG_PARAM1, temperature);
+	;
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
