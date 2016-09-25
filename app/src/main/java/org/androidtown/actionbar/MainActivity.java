@@ -53,6 +53,7 @@ import java.util.UUID;
  */
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
+	private static final String ARG_PARAM2 = "정상온도 임계값";
 	private static final String ARG_PARAM3 = "움직임";
 
 	/**
@@ -108,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
 	boolean pAlarm;
 	boolean mAlarm;
 	boolean aAlarm;
-	int SEEKBAR_VALUE_T;
+	double SEEKBAR_VALUE;
 
 
 
@@ -264,7 +265,16 @@ public class MainActivity extends ActionBarActivity {
 		pAlarm = prefs.getBoolean("pAlarm", false);
 		mAlarm = prefs.getBoolean("mAlarm", false);
 		aAlarm = prefs.getBoolean("aAlarm", false);
-		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 37);
+		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 36);
+
+//		Toast.makeText(getApplicationContext(),
+//				"값 : " + alarmOnOff
+//						+ " " + tAlarm
+//						+ " " + pAlarm
+//						+ " " + mAlarm
+//						+ " " + aAlarm
+//						+ " " + SEEKBAR_VALUE
+//				, Toast.LENGTH_LONG).show();
 
 	}
 
@@ -274,14 +284,6 @@ public class MainActivity extends ActionBarActivity {
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		alarmOnOff = prefs.getBoolean("alarmOnOff", false);
-		tAlarm = prefs.getBoolean("tAlarm", false);
-		pAlarm = prefs.getBoolean("pAlarm", false);
-		mAlarm = prefs.getBoolean("mAlarm", false);
-		aAlarm = prefs.getBoolean("aAlarm", false);
-		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 37);
 
 
 		// Get the application context
@@ -496,24 +498,21 @@ public class MainActivity extends ActionBarActivity {
 										public void run() {
 											chagePrefValue();
 
-											double minNormal = SEEKBAR_VALUE_T-0.4;
-											double maxNormal = SEEKBAR_VALUE_T+0.4;
+											double minNormal = SEEKBAR_VALUE-0.5;
+											double maxNormal = SEEKBAR_VALUE+0.5;
+
+											Toast.makeText(getApplicationContext(),
+											"값 : " + minNormal + " " + maxNormal
+											, Toast.LENGTH_SHORT).show();
 
 											pagerAdapter.notifyDataSetChanged();
 
-											if(temperature<minNormal && temperature>maxNormal){
+											if(temperature<minNormal || temperature>maxNormal){
 
 												if(firealarm == 30) {
 													if(tAlarm == true && alarmOnOff == true) {
 														createfireNotification();
-														Toast.makeText(getApplicationContext(),
-																"값 : " + alarmOnOff
-																		+ " " + tAlarm
-																		+ " " + pAlarm
-																		+ " " + mAlarm
-																		+ " " + aAlarm
-																		+ " " + SEEKBAR_VALUE_T
-																, Toast.LENGTH_LONG).show();
+
 													}
 													firealarm=0;
 												}
@@ -715,7 +714,7 @@ public class MainActivity extends ActionBarActivity {
 				frag = new Fragment01();
 				Bundle args = new Bundle();
 				args.putDouble(ARG_PARAM1, temperature);
-	;
+				args.putDouble(ARG_PARAM2, SEEKBAR_VALUE);
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
