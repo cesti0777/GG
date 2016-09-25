@@ -124,13 +124,13 @@ public class MainActivity extends ActionBarActivity {
 
 		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
 
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(123, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 1111, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		nBuilder.setContentTitle("베이비시터");
-		nBuilder.setContentText("아이가 뜨거워요!!");
-		nBuilder.setSmallIcon(R.drawable.ic_stat_name);
+		nBuilder.setContentTitle("Baby Sitter");
+		nBuilder.setContentText("아이 체온이 높아요!!");
+		nBuilder.setSmallIcon(R.drawable.babycrying);
 
 		nBuilder.setContentIntent(pendingIntent);
 		nBuilder.setAutoCancel(true);
@@ -143,16 +143,52 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-		nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
+		//nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
 
 		Notification notification = nBuilder.build();
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
 		nm.notify(0, notification);
-
-
-
 	}
+
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	public void createcoldNotification() {  //온도알람 만들어주는 녀석
+
+		Intent intent = new Intent(MainActivity.this, MainActivity.class);
+
+		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
+
+		taskStackBuilder.addNextIntent(intent);
+
+		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
+
+		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 1111, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
+		nBuilder.setContentTitle("Baby Sitter");
+		nBuilder.setContentText("아이 체온이 낮아요!!");
+		nBuilder.setSmallIcon(R.drawable.babycold);
+
+		nBuilder.setContentIntent(pendingIntent);
+		nBuilder.setAutoCancel(true);
+
+		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
+		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
+
+		nBuilder.setVibrate(new long[] {100,2000,500,2000});
+		nBuilder.setLights(Color.RED, 400, 400);
+
+
+
+		//nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
+
+		Notification notification = nBuilder.build();
+		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+		nm.notify(1, notification);
+	}
+
 
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void createaccNotification() {  //움직임알람 만들어주는 녀석
@@ -163,13 +199,13 @@ public class MainActivity extends ActionBarActivity {
 
 		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
 
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(456, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 333, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 2222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		nBuilder.setContentTitle("베이비시터");
-		nBuilder.setContentText("아이가 안움직여요!!");
-		nBuilder.setSmallIcon(R.drawable.ic_stat_name);
+		nBuilder.setContentTitle("Baby Sitter");
+		nBuilder.setContentText("아이의 움직임 상태를 확인해주세요!");
+		nBuilder.setSmallIcon(R.drawable.active2);
 
 		nBuilder.setContentIntent(pendingIntent);
 		nBuilder.setAutoCancel(true);
@@ -180,18 +216,44 @@ public class MainActivity extends ActionBarActivity {
 		nBuilder.setVibrate(new long[] {100,2000,500,2000});
 		nBuilder.setLights(Color.RED, 400, 400);
 
+		Notification notification = nBuilder.build();
+		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
+		nm.notify(2, notification);
+	}
 
-		nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	public void createmotionNotification() {  //움직임알람 만들어주는 녀석
+
+		Intent intent = new Intent(MainActivity.this, MainActivity.class);
+		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
+		taskStackBuilder.addNextIntent(intent);
+
+		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
+
+		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 2222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
+		nBuilder.setContentTitle("Baby Sitter");
+		nBuilder.setContentText("아이가 뒤집기를 한거 같아요!!");
+		nBuilder.setSmallIcon(R.drawable.danger);
+
+		nBuilder.setContentIntent(pendingIntent);
+		nBuilder.setAutoCancel(true);
+
+		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
+		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
+
+		nBuilder.setVibrate(new long[] {100,2000,500,2000});
+		nBuilder.setLights(Color.RED, 400, 400);
 
 		Notification notification = nBuilder.build();
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
-		nm.notify(1, notification);
-
-
-
+		nm.notify(3, notification);
 	}
+
 	//------------형준
 
 	public void chagePrefValue() {
