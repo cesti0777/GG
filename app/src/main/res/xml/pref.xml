@@ -18,7 +18,8 @@
             android:dialogMessage="@string/settings_dialog_message"
             android:dependency="tAlarm"
             android:key="SEEKBAR_VALUE"
-            android:max="100"
+            android:max="45"
+
             android:summary="@string/settings_summary"
             android:text="@string/settings_unit"
             android:title="@string/settings_title" />

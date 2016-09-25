@@ -7,9 +7,9 @@
     <string name="menu_settings">설정</string>
     <string name="textview_text">SeekBarPreference test</string>
 
-    <string name="settings_dialog_message">체온 이상 온도를 설정하세요</string>
+    <string name="settings_dialog_message">정상 온도 : 설정값과의 오차 +-0.5</string>
     <string name="settings_summary"></string>
     <string name="settings_unit">℃</string>
-    <string name="settings_title">▶ 체온이상 온도 설정</string>
+    <string name="settings_title">▶ 정상 온도 설정</string>
 
 </resources>
