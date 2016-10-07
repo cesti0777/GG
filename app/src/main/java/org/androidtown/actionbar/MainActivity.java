@@ -54,7 +54,11 @@ import java.util.UUID;
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
 	private static final String ARG_PARAM2 = "정상온도 임계값";
-	private static final String ARG_PARAM3 = "움직임";
+	private static final String ARG_PARAM3 = "심박수";
+	private static final String ARG_PARAM4 = "X축";
+	private static final String ARG_PARAM5 = "Y축";
+	private static final String ARG_PARAM6 = "Z축";
+
 
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
@@ -84,10 +88,20 @@ public class MainActivity extends ActionBarActivity {
 
 	char mCharDelimiter =  '\n';
 
-	double temperature;
+	//온도값 변수들
+	int tempertmp1; //정수형태 온도반영
+	double tempertmp2; //소수형태 온도반영
+	double temperature; //센싱된 온도값(가공전)
+	double pcstemp=0; // 가공중인 온도값
+	double finaltemperature=0; //가동된 최종 온도값
+	double[] temperarray; //센싱된 온도값들 모을 배열들
+	int arraycount=0; // 온도배열 자리수 체크
+	int tempercount=0; // 센싱된 온도수
+	boolean checktmp = false;
+
+
+
 	int accdata;
-	int tempertmp1;
-	double tempertmp2;
 
 	Thread mWorkerThread = null;
 	byte[] readBuffer;
@@ -95,6 +109,18 @@ public class MainActivity extends ActionBarActivity {
 
 	//온도 알람에 대한 주기 설정
 	int firealarm = 30;
+
+	//심박수 변수들
+	int heartbeat;
+
+
+	//움직임 변수들
+	int accx;
+	int accy;
+	int accz;
+
+
+
 
 	//움직임 알람에 대한 주기 설정
 	int accdatas[] = new int[100];  //움직임 알람에 대한 갑 저장 배열
@@ -449,33 +475,55 @@ public class MainActivity extends ActionBarActivity {
 
 									final String data = new String(encodedBytes, 0, encodedBytes.length-1);
 
-									final int testdata = Integer.valueOf(data);
+									int testdata = Integer.valueOf(data);
 
-									if(testdata<450){
+									if(testdata>10000 && testdata < 20000){  //온도값 가공
+										testdata = testdata-10000;
 										tempertmp1= testdata/10;
 										tempertmp2 = (testdata%10)*(0.1);
 										temperature = tempertmp1+tempertmp2;
+
+//										//아웃라이어값 찾기
+
+
 									}
-									else {
-										accdata = testdata;
-										accdatas[acccount] = accdata;  //배열에 움직임값 삽입
-
-										if(acccount>0){
-											if(accdatas[acccount]-accdatas[acccount-1]>150) {
-												accdanger = true;
-												acctemp = acccount;
-											}
-										}
-
-										acccount++;
+									else if(testdata >20000 && testdata <30000){ //심박수값
+										heartbeat = testdata-20000;
 									}
 
-									if(acccount>10){
-										if(accdatas[acctemp]-accdatas[acccount]>200){
-											accok = true;
-										}
-										acccount =0;
+									else if(testdata > 30000 && testdata <40000){ //
+										accx = testdata-30000;
 									}
+
+									else if(testdata > 40000 && testdata <50000){ //
+										accy = testdata-40000;
+									}
+
+									else if(testdata > 50000 && testdata <60000){ //
+										accz = testdata-50000;
+									}
+
+
+//									else {
+//										accdata = testdata;
+//										accdatas[acccount] = accdata;  //배열에 움직임값 삽입
+//
+//										if(acccount>0){
+//											if(accdatas[acccount]-accdatas[acccount-1]>150) {
+//												accdanger = true;
+//												acctemp = acccount;
+//											}
+//										}
+//
+//										acccount++;
+//									}
+//
+//									if(acccount>10){
+//										if(accdatas[acctemp]-accdatas[acccount]>200){
+//											accok = true;
+//										}
+//										acccount =0;
+//									}
 
 
 
@@ -501,9 +549,9 @@ public class MainActivity extends ActionBarActivity {
 											double minNormal = SEEKBAR_VALUE-0.5;
 											double maxNormal = SEEKBAR_VALUE+0.5;
 
-											Toast.makeText(getApplicationContext(),
-											"값 : " + minNormal + " " + maxNormal
-											, Toast.LENGTH_SHORT).show();
+//											Toast.makeText(getApplicationContext(),
+//													"값 : " + minNormal + " " + maxNormal
+//													, Toast.LENGTH_SHORT).show();
 
 											pagerAdapter.notifyDataSetChanged();
 
@@ -529,9 +577,9 @@ public class MainActivity extends ActionBarActivity {
 													}
 													accok=false;
 												}
-												}
-
 											}
+
+										}
 
 
 									});
@@ -718,10 +766,15 @@ public class MainActivity extends ActionBarActivity {
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
+				Bundle args = new Bundle();
+				args.putInt(ARG_PARAM3, heartbeat);
+				frag.setArguments(args);
 			} else if (index == 2) {
 				frag = new Fragment03();
 				Bundle args = new Bundle();
-				args.putInt(ARG_PARAM3, accdata);
+				args.putInt(ARG_PARAM4, accx);
+				args.putInt(ARG_PARAM5, accy);
+				args.putInt(ARG_PARAM6, accz);
 				frag.setArguments(args);
 			} else if (index == 3) {
 				frag = new Fragment04();
