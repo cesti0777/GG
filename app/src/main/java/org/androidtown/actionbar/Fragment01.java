@@ -23,7 +23,13 @@ public class Fragment01 extends Fragment {
 		TextView tv = (TextView) view.findViewById(R.id.text01);
 //		tv.setText("움직임:"+num);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv1);
-		if(num>minNormal && num<maxNormal)
+		if(num<10)
+		{
+			iv.setImageResource(R.drawable.babysmile);
+			tv.setText(" 측정중이에요. \n");
+		}
+
+		else if(num>minNormal && num<maxNormal)
 		{
 			iv.setImageResource(R.drawable.babysmile);
 			tv.setText(" 정상이예요. \n" +

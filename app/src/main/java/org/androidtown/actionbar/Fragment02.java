@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Fragment02 extends Fragment {
-	private static final String ARG_PARAM3 = "온도";
+	private static final String ARG_PARAM3 = "심박수";
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
-//		int  num = getArguments().getInt(ARG_PARAM3);
-		int num=65;
+		int  num = getArguments().getInt(ARG_PARAM3);
+		//int num=65;
 		View view = inflater.inflate(R.layout.frag02, container, false);
 		TextView tv = (TextView) view.findViewById(R.id.text02);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv2);
