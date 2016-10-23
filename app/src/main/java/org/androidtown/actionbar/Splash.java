@@ -7,14 +7,14 @@ import android.os.Bundle;
 /**
  * Created by J Bin on 2016-07-28.
  */
-public class SplashActivity extends Activity {
+public class Splash extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         try
         {
-            Thread.sleep(2000);;
+            Thread.sleep(2000);
 
         } catch (InterruptedException e) {
             e.printStackTrace();

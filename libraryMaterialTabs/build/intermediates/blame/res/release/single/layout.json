@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\baby\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\baby\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
         "merged": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_up_container.xml",
         "source": "C:\\Git\\ggp\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "C:\\baby\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\baby\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "C:\\baby\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\material_tab.xml",

@@ -46,11 +46,6 @@ import java.util.Set;
 import java.util.UUID;
 
 
-/**
- * 툴바에 탭을 설정하는 방법을 알 수 있습니다.
- *
- * @author Mike
- */
 public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
 	private static final String ARG_PARAM2 = "정상온도 임계값";
@@ -795,7 +790,7 @@ public class MainActivity extends ActionBarActivity {
 		int curId = item.getItemId();
 		switch(curId){
 			case R.id.menu_settings:
-				Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+				Intent intent = new Intent(getApplicationContext(), Setting.class);
 				startActivity(intent);
 				break;
 			case R.id.bluetooth_button:

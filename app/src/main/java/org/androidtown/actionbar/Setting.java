@@ -8,14 +8,8 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
-/**
- * 직접 만들어보는 설정 화면
- * API에서 제공하는 설정 화면은 다른 방법으로 만들어야 함
- *
- * @author Mike
- */
 
-public class SettingsActivity extends PreferenceActivity {
+public class Setting extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
