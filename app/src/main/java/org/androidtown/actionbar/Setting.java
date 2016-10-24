@@ -19,7 +19,8 @@ public class Setting extends PreferenceActivity {
 
     public static class MyPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener
     {
-        private SeekBarPreference _seekBarPref;
+        private SeekBarPreference _seekBarPref_t;
+        private SeekBarPreference _seekBarPref_p;
 
         @Override
         public void onCreate(final Bundle savedInstanceState)
@@ -31,8 +32,11 @@ public class Setting extends PreferenceActivity {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
             // Set seekbar summary :
-            int radius = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).getInt("SEEKBAR_VALUE", 50);
-            _seekBarPref.setSummary(this.getString(R.string.settings_summary).replace("$1", ""+radius));
+            int radius_t = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).getInt("SEEKBAR_VALUE_T", 50);
+            _seekBarPref_t.setSummary(this.getString(R.string.settings_summary_t).replace("$1", ""+radius_t));
+
+            int radius_p = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).getInt("SEEKBAR_VALUE_P", 50);
+            _seekBarPref_p.setSummary(this.getString(R.string.settings_summary_p).replace("$1", ""+radius_p));
         }
     }
 

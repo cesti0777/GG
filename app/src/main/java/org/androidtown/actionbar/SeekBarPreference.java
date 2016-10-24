@@ -52,7 +52,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 
         // Get default and max seekbar values :
         mDefault = attrs.getAttributeIntValue(androidns, "defaultValue", 0);
-        mMax = 45;
+        mMax = attrs.getAttributeIntValue(androidns, "max", 0);
     }
     // ------------------------------------------------------------------------------------------
 

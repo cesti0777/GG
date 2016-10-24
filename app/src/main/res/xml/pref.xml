@@ -15,28 +15,29 @@
             android:title="체온이상 알람 사용" />
         <org.androidtown.actionbar.SeekBarPreference
             android:defaultValue="50"
-            android:dialogMessage="@string/settings_dialog_message"
+            android:dialogMessage="@string/settings_dialog_message_t"
             android:dependency="tAlarm"
-            android:key="SEEKBAR_VALUE"
+            android:key="SEEKBAR_VALUE_T"
             android:max="45"
+            android:summary="@string/settings_summary_t"
+            android:text="@string/settings_unit_t"
+            android:title="@string/settings_title_t" />
 
-            android:summary="@string/settings_summary"
-            android:text="@string/settings_unit"
-            android:title="@string/settings_title" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="alarmOnOff"
             android:key="pAlarm"
             android:title="심박이상 알람 사용" />
         <org.androidtown.actionbar.SeekBarPreference
-        android:defaultValue="120"
-        android:dialogMessage="@string/settings_dialog_message_p"
-        android:dependency="pAlarm"
-        android:key="SEEKBAR_VALUE_P"
-        android:max="45"
-        android:summary="@string/settings_summary_p"
-        android:text="@string/settings_unit_p"
-        android:title="@string/settings_title_p" />
+            android:defaultValue="50"
+            android:dialogMessage="@string/settings_dialog_message_p"
+            android:dependency="pAlarm"
+            android:key="SEEKBAR_VALUE_P"
+            android:max="100"
+            android:summary="@string/settings_summary_p"
+            android:text="@string/settings_unit_p"
+            android:title="@string/settings_title_p" />
+
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="alarmOnOff"
