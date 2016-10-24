@@ -53,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM4 = "X축";
 	private static final String ARG_PARAM5 = "Y축";
 	private static final String ARG_PARAM6 = "Z축";
-
+	private static final String ARG_PARAM7 = "정상 심박수 임계값";
 
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
@@ -130,7 +130,8 @@ public class MainActivity extends ActionBarActivity {
 	boolean pAlarm;
 	boolean mAlarm;
 	boolean aAlarm;
-	double SEEKBAR_VALUE;
+	double SEEKBAR_VALUE_T;
+	int SEEKBAR_VALUE_P;
 
 
 
@@ -286,7 +287,29 @@ public class MainActivity extends ActionBarActivity {
 		pAlarm = prefs.getBoolean("pAlarm", false);
 		mAlarm = prefs.getBoolean("mAlarm", false);
 		aAlarm = prefs.getBoolean("aAlarm", false);
-		SEEKBAR_VALUE = prefs.getInt("SEEKBAR_VALUE", 36);
+		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 36);
+		SEEKBAR_VALUE_P = prefs.getInt("SEEKBAR_VALUE_P", 70);
+//
+//		Toast.makeText(getApplicationContext(),
+//				"값 : " + alarmOnOff
+//						+ " " + tAlarm
+//						+ " " + pAlarm
+//						+ " " + mAlarm
+//						+ " " + aAlarm
+//						+ " " + SEEKBAR_VALUE_T
+//						+ " " + SEEKBAR_VALUE_P
+//				, Toast.LENGTH_SHORT).show();
+
+	}
+
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+
+
+		requestWindowFeature(Window.FEATURE_ACTION_BAR);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
 //		Toast.makeText(getApplicationContext(),
 //				"값 : " + alarmOnOff
@@ -294,17 +317,9 @@ public class MainActivity extends ActionBarActivity {
 //						+ " " + pAlarm
 //						+ " " + mAlarm
 //						+ " " + aAlarm
-//						+ " " + SEEKBAR_VALUE
+//						+ " " + SEEKBAR_VALUE_T
+//						+ " " + SEEKBAR_VALUE_P
 //				, Toast.LENGTH_LONG).show();
-
-	}
-
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_ACTION_BAR);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
 
 		// Get the application context
@@ -499,39 +514,6 @@ public class MainActivity extends ActionBarActivity {
 									}
 
 
-//									else {
-//										accdata = testdata;
-//										accdatas[acccount] = accdata;  //배열에 움직임값 삽입
-//
-//										if(acccount>0){
-//											if(accdatas[acccount]-accdatas[acccount-1]>150) {
-//												accdanger = true;
-//												acctemp = acccount;
-//											}
-//										}
-//
-//										acccount++;
-//									}
-//
-//									if(acccount>10){
-//										if(accdatas[acctemp]-accdatas[acccount]>200){
-//											accok = true;
-//										}
-//										acccount =0;
-//									}
-
-
-
-									/*
-									if(acccount>10) { //배열 인자값이 50이 넘었을때 -> 중복 알람을 방지하기위한 어느정도 범위설정한거임
-										accnoti = accdatas[10]-accdatas[0];  //움직임 여부를 측정하기위한 값계산
-										acccount = 0;
-										accdatas[10]=0;
-										accdatas[0]=0;
-										accok = true;
-									}*/
-
-
 									readBufferPosition = 0;
 
 									handler.post(new Runnable(){
@@ -541,16 +523,14 @@ public class MainActivity extends ActionBarActivity {
 										public void run() {
 											chagePrefValue();
 
-											double minNormal = SEEKBAR_VALUE-0.5;
-											double maxNormal = SEEKBAR_VALUE+0.5;
-
-//											Toast.makeText(getApplicationContext(),
-//													"값 : " + minNormal + " " + maxNormal
-//													, Toast.LENGTH_SHORT).show();
+											double minNormal_t = SEEKBAR_VALUE_T-0.5;
+											double maxNormal_t = SEEKBAR_VALUE_T+0.5;
+											int minNormal_p = SEEKBAR_VALUE_P-5;
+											int maxNormal_p = SEEKBAR_VALUE_P+5;
 
 											pagerAdapter.notifyDataSetChanged();
 
-											if(temperature<minNormal || temperature>maxNormal){
+											if(temperature<minNormal_t || temperature>maxNormal_t){
 
 												if(firealarm == 30) {
 													if(tAlarm == true && alarmOnOff == true) {
@@ -563,6 +543,10 @@ public class MainActivity extends ActionBarActivity {
 												{
 													firealarm++;
 												}
+											}
+
+											if(temperature<minNormal_p || temperature>maxNormal_p) {
+											//-------------심박 알람 추가--------------//
 											}
 
 											if(accok==true){
@@ -757,12 +741,13 @@ public class MainActivity extends ActionBarActivity {
 				frag = new Fragment01();
 				Bundle args = new Bundle();
 				args.putDouble(ARG_PARAM1, temperature);
-				args.putDouble(ARG_PARAM2, SEEKBAR_VALUE);
+				args.putDouble(ARG_PARAM2, SEEKBAR_VALUE_T);
 				frag.setArguments(args);
 			} else if (index == 1) {
 				frag = new Fragment02();
 				Bundle args = new Bundle();
 				args.putInt(ARG_PARAM3, heartbeat);
+				args.putInt(ARG_PARAM7, SEEKBAR_VALUE_P);
 				frag.setArguments(args);
 			} else if (index == 2) {
 				frag = new Fragment03();

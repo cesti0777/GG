@@ -15,14 +15,16 @@ public class Fragment01 extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
 		//double num = getArguments().getInt(ARG_PARAM1);
 		double num = getArguments().getDouble(ARG_PARAM1);
-		double SEEKBAR_VALUE = getArguments().getDouble(ARG_PARAM2);
-		double minNormal = SEEKBAR_VALUE-0.5;
-		double maxNormal = SEEKBAR_VALUE+0.5;
-//		int num=40;
+		double SEEKBAR_VALUE_T = getArguments().getDouble(ARG_PARAM2);
+		double minNormal = SEEKBAR_VALUE_T-0.5;
+		double maxNormal = SEEKBAR_VALUE_T+0.5;
+
 		View view = inflater.inflate(R.layout.frag01, container, false);
 		TextView tv = (TextView) view.findViewById(R.id.text01);
-//		tv.setText("움직임:"+num);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv1);
+		iv.setImageResource(R.drawable.babysmile);
+		tv.setText(" 정상이예요. \n" +
+				"     체온 : "+num+" ℃");
 		if(num<10)
 		{
 			iv.setImageResource(R.drawable.babysmile);
