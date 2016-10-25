@@ -27,7 +27,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.internal.view.menu.ActionMenuItemView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM5 = "Y축";
 	private static final String ARG_PARAM6 = "Z축";
 	private static final String ARG_PARAM7 = "정상 심박수 임계값";
+	private static final String ARG_PARAM8 = "거리값";
 
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
@@ -77,10 +77,15 @@ public class MainActivity extends ActionBarActivity {
 	 현재 기기가 아닌 다른 블루투스 기기와의 연결 및 정보를 알아낼 때 사용.
 	 */
 	BluetoothDevice mRemoteDevie;
+	BluetoothDevice mRemoteDevie2;
 	// 스마트폰과 페어링 된 디바이스간 통신 채널에 대응 하는 BluetoothSocket
 	BluetoothSocket mSocket = null;
 	OutputStream mOutputStream = null;
 	InputStream mInputStream = null;
+
+	BluetoothSocket mSocket2 = null;
+	OutputStream mOutputStream2 = null;
+	InputStream mInputStream2 = null;
 
 	char mCharDelimiter =  '\n';
 
@@ -100,8 +105,12 @@ public class MainActivity extends ActionBarActivity {
 	int accdata;
 
 	Thread mWorkerThread = null;
-	byte[] readBuffer;
+	byte[] readBuffer; //아기용
 	int readBufferPosition;
+
+	Thread mWorkerThread2 = null;
+	byte[] readBuffer2; //접근용
+	int readBufferPosition2;
 
 	//온도 알람에 대한 주기 설정
 	int firealarm = 30;
@@ -114,6 +123,10 @@ public class MainActivity extends ActionBarActivity {
 	int accx;
 	int accy;
 	int accz;
+
+
+	//거리값 변수들
+	int distance;
 
 
 
@@ -291,15 +304,15 @@ public class MainActivity extends ActionBarActivity {
 		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 36);
 		SEEKBAR_VALUE_P = prefs.getInt("SEEKBAR_VALUE_P", 70);
 //
-//		Toast.makeText(getApplicationContext(),
-//				"값 : " + alarmOnOff
-//						+ " " + tAlarm
-//						+ " " + pAlarm
-//						+ " " + mAlarm
-//						+ " " + aAlarm
-//						+ " " + SEEKBAR_VALUE_T
-//						+ " " + SEEKBAR_VALUE_P
-//				, Toast.LENGTH_SHORT).show();
+//      Toast.makeText(getApplicationContext(),
+//            "값 : " + alarmOnOff
+//                  + " " + tAlarm
+//                  + " " + pAlarm
+//                  + " " + mAlarm
+//                  + " " + aAlarm
+//                  + " " + SEEKBAR_VALUE_T
+//                  + " " + SEEKBAR_VALUE_P
+//            , Toast.LENGTH_SHORT).show();
 
 	}
 
@@ -312,40 +325,40 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-//		Toast.makeText(getApplicationContext(),
-//				"값 : " + alarmOnOff
-//						+ " " + tAlarm
-//						+ " " + pAlarm
-//						+ " " + mAlarm
-//						+ " " + aAlarm
-//						+ " " + SEEKBAR_VALUE_T
-//						+ " " + SEEKBAR_VALUE_P
-//				, Toast.LENGTH_LONG).show();
+//      Toast.makeText(getApplicationContext(),
+//            "값 : " + alarmOnOff
+//                  + " " + tAlarm
+//                  + " " + pAlarm
+//                  + " " + mAlarm
+//                  + " " + aAlarm
+//                  + " " + SEEKBAR_VALUE_T
+//                  + " " + SEEKBAR_VALUE_P
+//            , Toast.LENGTH_LONG).show();
 
 
 		// Get the application context
 
-//		// Get the activity
-////		mActivity = MainActivity.this;
-////		 Initialize a new TextView widget for action bar custom view
-//		TextView tv = new TextView(getApplicationContext());
+//      // Get the activity
+////      mActivity = MainActivity.this;
+////       Initialize a new TextView widget for action bar custom view
+//      TextView tv = new TextView(getApplicationContext());
 
 		// Initialize a new LayoutParams object
 		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
 				ActionBar.LayoutParams.MATCH_PARENT, // Width of TextView
 				ActionBar.LayoutParams.WRAP_CONTENT // Height of TextView
 		);
-////		// Set the TextView text color
-////		tv.setTextColor(Color.rgb(69,103,227));
-////		// Set the TextView text as action bar title
-////		tv.setTextSize(30);
-////		tv.setText("아이케어");
-////		// Set the height and width of TextView
-////		tv.setLayoutParams(lp);
-////		// Display a custom font in TextView
-//		Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Typo_SsangmunDongB.ttf");
-//		// Set the TextView font
-//		tv.setTypeface(typeface);
+////      // Set the TextView text color
+////      tv.setTextColor(Color.rgb(69,103,227));
+////      // Set the TextView text as action bar title
+////      tv.setTextSize(30);
+////      tv.setText("아이케어");
+////      // Set the height and width of TextView
+////      tv.setLayoutParams(lp);
+////      // Display a custom font in TextView
+//      Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Typo_SsangmunDongB.ttf");
+//      // Set the TextView font
+//      tv.setTypeface(typeface);
 		// Get the action bar
 		try{
 			// Set the action bar background color
@@ -356,10 +369,10 @@ public class MainActivity extends ActionBarActivity {
 			// Set the action bar display option
 			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 			// Set the action bar custom view
-//			getSupportActionBar().setCustomView(tv);
+//         getSupportActionBar().setCustomView(tv);
 			View mCustomView = LayoutInflater.from(this).inflate(R.layout.actionbar_main, null);
 			getSupportActionBar().setCustomView(mCustomView);
-//			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_USE_LOGO, ActionBar.DISPLAY_SHOW_TITLE);
+//         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_USE_LOGO, ActionBar.DISPLAY_SHOW_TITLE);
 		}catch (NullPointerException e){
 			e.printStackTrace();
 		}
@@ -383,7 +396,7 @@ public class MainActivity extends ActionBarActivity {
 		tabhost.setPrimaryColor(Color.rgb(69,103,227));
 
 		// 탭을 추가합니다.
-//		for (int i = 0; i < pagerAdapter.getCount(); i++) { //공모전에는 해당ㄴㄴ
+//      for (int i = 0; i < pagerAdapter.getCount(); i++) { //공모전에는 해당ㄴㄴ
 		for (int i = 0; i < 4; i++) {
 			MaterialTab tab = tabhost.newTab();
 			tab.setText(pagerAdapter.getPageTitle(i));
@@ -421,11 +434,13 @@ public class MainActivity extends ActionBarActivity {
 
 	//  connectToSelectedDevice() : 원격 장치와 연결하는 과정을 나타냄.
 	//        실제 데이터 송수신을 위해서는 소켓으로부터 입출력 스트림을 얻고 입출력 스트림을 이용하여 이루어 진다.
-	void connectToSelectedDevice(String selectedDeviceName) {
+	void connectToSelectedDevice(String selectedDeviceName, String selectedDeviceName2) {
 		// BluetoothDevice 원격 블루투스 기기를 나타냄.
-		mRemoteDevie = getDeviceFromBondedList(selectedDeviceName);
+		mRemoteDevie = getDeviceFromBondedList(selectedDeviceName);  //아기용
+		mRemoteDevie2 = getDeviceFromBondedList(selectedDeviceName2);  //접근용
 		// java.util.UUID.fromString : 자바에서 중복되지 않는 Unique 키 생성.
 		UUID uuid = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+		UUID uuid2 = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
 		try {
 			// 소켓 생성, RFCOMM 채널을 통한 연결.
@@ -434,6 +449,9 @@ public class MainActivity extends ActionBarActivity {
 			mSocket = mRemoteDevie.createRfcommSocketToServiceRecord(uuid);
 			mSocket.connect(); // 소켓이 생성 되면 connect() 함수를 호출함으로써 두기기의 연결은 완료된다.
 
+			mSocket2 = mRemoteDevie2.createRfcommSocketToServiceRecord(uuid2);
+			mSocket2.connect(); // 소켓이 생성 되면 connect() 함수를 호출함으로써 두기기의 연결은 완료된다.
+
 			// 데이터 송수신을 위한 스트림 얻기.
 			// BluetoothSocket 오브젝트는 두개의 Stream을 제공한다.
 			// 1. 데이터를 보내기 위한 OutputStrem
@@ -441,8 +459,12 @@ public class MainActivity extends ActionBarActivity {
 			mOutputStream = mSocket.getOutputStream();
 			mInputStream = mSocket.getInputStream();
 
+			mOutputStream2 = mSocket2.getOutputStream();
+			mInputStream2 = mSocket2.getInputStream();
+
 			// 데이터 수신 준비.
 			beginListenForData();
+			beginListenForData2();
 
 		}catch(Exception e) { // 블루투스 연결 중 오류 발생
 			Toast.makeText(getApplicationContext(), "블루투스 연결 중 오류가 발생했습니다.", Toast.LENGTH_LONG).show();
@@ -457,26 +479,29 @@ public class MainActivity extends ActionBarActivity {
 		readBufferPosition = 0;                 // 버퍼 내 수신 문자 저장 위치.
 		readBuffer = new byte[512];            // 수신 버퍼.
 
+		readBufferPosition2 = 0;                 // 버퍼 내 수신 문자 저장 위치.
+		readBuffer2 = new byte[512];            // 수신 버퍼.
+
 		// 문자열 수신 쓰레드.
-		mWorkerThread = new Thread(new Runnable()
-		{
+		mWorkerThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				// interrupt() 메소드를 이용 스레드를 종료시키는 예제이다.
 				// interrupt() 메소드는 하던 일을 멈추는 메소드이다.
 				// isInterrupted() 메소드를 사용하여 멈추었을 경우 반복문을 나가서 스레드가 종료하게 된다.
-				while(!Thread.currentThread().isInterrupted()) {
+				while (!Thread.currentThread().isInterrupted()) {
 					try {
 						// InputStream.available() : 다른 스레드에서 blocking 하기 전까지 읽은 수 있는 문자열 개수를 반환함.
 						int byteAvailable = mInputStream.available();   // 수신 데이터 확인
-						if(byteAvailable > 0) {                        // 데이터가 수신된 경우.
+						//아기용
+						if (byteAvailable > 0) {                        // 데이터가 수신된 경우.
 							byte[] packetBytes = new byte[byteAvailable];
 
 							// read(buf[]) : 입력스트림에서 buf[] 크기만큼 읽어서 저장 없을 경우에 -1 리턴.
 							mInputStream.read(packetBytes);
-							for(int i=0; i<byteAvailable; i++) {
+							for (int i = 0; i < byteAvailable; i++) {
 								byte b = packetBytes[i];
-								if(b == mCharDelimiter) {
+								if (b == mCharDelimiter) {
 									//String str = "test";
 									//Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
 									byte[] encodedBytes = new byte[readBufferPosition];
@@ -484,78 +509,69 @@ public class MainActivity extends ActionBarActivity {
 									//  readBuffer 배열을 처음 부터 끝까지 encodedBytes 배열로 복사.
 									System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
 
-									final String data = new String(encodedBytes, 0, encodedBytes.length-1);
+									final String data = new String(encodedBytes, 0, encodedBytes.length - 1);
 
 									int testdata = Integer.valueOf(data);
 
-									if(testdata>10000 && testdata < 20000){  //온도값 가공
-										testdata = testdata-10000;
-										tempertmp1= testdata/10;
-										tempertmp2 = (testdata%10)*(0.1);
-										temperature = tempertmp1+tempertmp2;
+									if (testdata > 10000 && testdata < 20000) {  //온도값 가공
+										testdata = testdata - 10000;
+										tempertmp1 = testdata / 10;
+										tempertmp2 = (testdata % 10) * (0.1);
+										temperature = tempertmp1 + tempertmp2;
 
-//										//아웃라이어값 찾기
+//                              //아웃라이어값 찾기
 
 
-									}
-									else if(testdata >20000 && testdata <30000){ //심박수값
-										heartbeat = testdata-20000;
-									}
-
-									else if(testdata > 30000 && testdata <40000){ //
-										accx = testdata-30000;
-									}
-
-									else if(testdata > 40000 && testdata <50000){ //
-										accy = testdata-40000;
-									}
-
-									else if(testdata > 50000 && testdata <60000){ //
-										accz = testdata-50000;
+									} else if (testdata > 20000 && testdata < 30000) { //심박수값
+										heartbeat = testdata - 20000;
+									} else if (testdata > 30000 && testdata < 40000) { //x값
+										accx = testdata - 30000;
+									} else if (testdata > 40000 && testdata < 50000) { //y값
+										accy = testdata - 40000;
+									} else if (testdata > 50000 && testdata < 60000) { //z값
+										accz = testdata - 50000;
 									}
 
 
 									readBufferPosition = 0;
 
-									handler.post(new Runnable(){
+									handler.post(new Runnable() {
 										// 수신된 문자열 데이터에 대한 처리.
 
 										@Override
 										public void run() {
 											chagePrefValue();
 
-											double minNormal_t = SEEKBAR_VALUE_T-0.5;
-											double maxNormal_t = SEEKBAR_VALUE_T+0.5;
-											int minNormal_p = SEEKBAR_VALUE_P-5;
-											int maxNormal_p = SEEKBAR_VALUE_P+5;
+											double minNormal_t = SEEKBAR_VALUE_T - 0.5;
+											double maxNormal_t = SEEKBAR_VALUE_T + 0.5;
+											int minNormal_p = SEEKBAR_VALUE_P - 5;
+											int maxNormal_p = SEEKBAR_VALUE_P + 5;
 
 											pagerAdapter.notifyDataSetChanged();
 
-											if(temperature<minNormal_t || temperature>maxNormal_t){
+											if (temperature < minNormal_t || temperature > maxNormal_t) {
 
-												if(firealarm == 30) {
-													if(tAlarm == true && alarmOnOff == true) {
+												if (firealarm == 30) {
+													if (tAlarm == true && alarmOnOff == true) {
 														createfireNotification();
 
 													}
-													firealarm=0;
-												}
-												else if(firealarm<30)
-												{
+													firealarm = 0;
+												} else if (firealarm < 30) {
 													firealarm++;
 												}
 											}
 
-											if(temperature<minNormal_p || temperature>maxNormal_p) {
-											//-------------심박 알람 추가--------------//
+											if (temperature < minNormal_p || temperature > maxNormal_p) {
+												//-------------심박 알람 추가--------------//
 											}
 
-											if(accok==true){
-												if(accnoti>1 && accnoti<100) {  //움직임이 없으면
+											if (accok == true) {
+												if (accnoti > 1 && accnoti < 100) {  //움직임이 없으면
 													if (mAlarm == true && alarmOnOff == true) {
 														createaccNotification(); //움직임이 확인
 													}
-													accok=false;
+													accok = false;
 												}
 											}
 
@@ -563,12 +579,12 @@ public class MainActivity extends ActionBarActivity {
 
 
 									});
-								}
-								else {
+								} else {
 									readBuffer[readBufferPosition++] = b;
 								}
 							}
 						}
+
 
 					} catch (Exception e) {    // 데이터 수신 중 오류 발생.
 						Toast.makeText(getApplicationContext(), "데이터 수신 중 오류가 발생 했습니다.", Toast.LENGTH_LONG).show();
@@ -580,6 +596,74 @@ public class MainActivity extends ActionBarActivity {
 		});
 		mWorkerThread.start();
 	}
+
+
+	void beginListenForData2() {
+
+
+		readBufferPosition2 = 0;                 // 버퍼 내 수신 문자 저장 위치.
+		readBuffer2 = new byte[512];            // 수신 버퍼.
+		mWorkerThread2 = new Thread(new Runnable()
+		{
+			@Override
+			public void run() {
+				// interrupt() 메소드를 이용 스레드를 종료시키는 예제이다.
+				// interrupt() 메소드는 하던 일을 멈추는 메소드이다.
+				// isInterrupted() 메소드를 사용하여 멈추었을 경우 반복문을 나가서 스레드가 종료하게 된다.
+				while(!Thread.currentThread().isInterrupted()) {
+					try {
+						// InputStream.available() : 다른 스레드에서 blocking 하기 전까지 읽은 수 있는 문자열 개수를 반환함.
+
+						int byteAvailable2 = mInputStream2.available();   // 수신 데이터 확인
+
+
+						//접근용
+						if(byteAvailable2 > 0) {                        // 데이터가 수신된 경우.
+							byte[] packetBytes2 = new byte[byteAvailable2];
+
+							// read(buf[]) : 입력스트림에서 buf[] 크기만큼 읽어서 저장 없을 경우에 -1 리턴.
+							mInputStream2.read(packetBytes2);
+							for(int i=0; i<byteAvailable2; i++) {
+								byte b2 = packetBytes2[i];
+								if(b2 == mCharDelimiter) {
+									//String str = "test";
+									//Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+									byte[] encodedBytes2 = new byte[readBufferPosition2];
+									//  System.arraycopy(복사할 배열, 복사시작점, 복사된 배열, 붙이기 시작점, 복사할 개수)
+									//  readBuffer 배열을 처음 부터 끝까지 encodedBytes 배열로 복사.
+									System.arraycopy(readBuffer2, 0, encodedBytes2, 0, encodedBytes2.length);
+
+									final String data2 = new String(encodedBytes2, 0, encodedBytes2.length-1);
+									//                        Log.v("거리값",data2);
+									int testdata2 = Integer.valueOf(data2);
+
+									distance = testdata2;
+
+
+									readBufferPosition2 = 0;
+
+								}
+								else {
+									readBuffer2[readBufferPosition2++] = b2;
+								}
+							}
+						}
+
+
+
+					} catch (Exception e) {    // 데이터 수신 중 오류 발생.
+						Toast.makeText(getApplicationContext(), "데이터 수신 중 오류가 발생 했습니다.", Toast.LENGTH_LONG).show();
+						finish();            // App 종료.
+					}
+				}
+			}
+
+		});
+		mWorkerThread2.start();
+
+
+	}
+
 
 	// 블루투스 지원하며 활성 상태인 경우.
 	void selectDevice() {
@@ -621,8 +705,7 @@ public class MainActivity extends ActionBarActivity {
 					finish();
 				}
 				else { // 연결할 장치를 선택한 경우, 선택한 장치와 연결을 시도함.
-					connectToSelectedDevice(items[item].toString());
-					Log.v("item값",""+item);
+					connectToSelectedDevice(items[1].toString(), items[0].toString());
 				}
 			}
 
@@ -676,6 +759,10 @@ public class MainActivity extends ActionBarActivity {
 			mWorkerThread.interrupt(); // 데이터 수신 쓰레드 종료
 			mInputStream.close();
 			mSocket.close();
+			mWorkerThread2.interrupt(); // 데이터 수신 쓰레드 종료
+			mInputStream2.close();
+			mSocket2.close();
+
 		}catch(Exception e){}
 		super.onDestroy();
 	}
@@ -760,6 +847,9 @@ public class MainActivity extends ActionBarActivity {
 				frag.setArguments(args);
 			} else if (index == 3) {
 				frag = new Fragment04();
+				Bundle args = new Bundle();
+				args.putInt(ARG_PARAM8, distance);
+				frag.setArguments(args);
 			}
 			return frag;
 		}
@@ -845,7 +935,7 @@ public class MainActivity extends ActionBarActivity {
 					a.setTextColor(Color.BLACK);
 					a.setTextSize(20);
 					a.setTypeface(typeface);
-//					a.setBackgroundResource(R.drawable.bluetooth_off);
+//               a.setBackgroundResource(R.drawable.bluetooth_off);
 				}
 				else
 				{
@@ -854,7 +944,7 @@ public class MainActivity extends ActionBarActivity {
 					a.setTextColor(Color.BLUE);
 					a.setTextSize(20);
 					a.setTypeface(typeface);
-//					a.setBackgroundResource(R.drawable.bluetooth_on);
+//               a.setBackgroundResource(R.drawable.bluetooth_on);
 					checkBluetooth();
 				}
 		}
