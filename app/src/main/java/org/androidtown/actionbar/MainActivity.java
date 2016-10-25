@@ -27,6 +27,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.internal.view.menu.ActionMenuItemView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -621,6 +622,7 @@ public class MainActivity extends ActionBarActivity {
 				}
 				else { // 연결할 장치를 선택한 경우, 선택한 장치와 연결을 시도함.
 					connectToSelectedDevice(items[item].toString());
+					Log.v("item값",""+item);
 				}
 			}
 
