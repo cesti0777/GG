@@ -146,8 +146,10 @@ public class MainActivity extends ActionBarActivity {
 	boolean aAlarm;
 	double SEEKBAR_VALUE_T;
 	int SEEKBAR_VALUE_P;
+
 	String tAlarmPeriod;
 
+	final List<String> selectedItems = new ArrayList<String>();
 
 
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -686,12 +688,12 @@ public class MainActivity extends ActionBarActivity {
 		builder.setTitle("블루투스 장치 선택");
 
 		// 각 디바이스는 이름과(서로 다른) 주소를 가진다. 페어링 된 디바이스들을 표시한다.
-		List<String> listItems = new ArrayList<String>();
+		final List<String> listItems = new ArrayList<String>();
 		for(BluetoothDevice device : mDevices) {
 			// device.getName() : 단말기의 Bluetooth Adapter 이름을 반환.
 			listItems.add(device.getName());
 		}
-		listItems.add("취소");  // 취소 항목 추가.
+//		listItems.add("취소");  // 취소 항목 추가.
 
 
 		// CharSequence : 변경 가능한 문자열.
@@ -699,23 +701,52 @@ public class MainActivity extends ActionBarActivity {
 		final CharSequence[] items = listItems.toArray(new CharSequence[listItems.size()]);
 		// toArray 함수를 이용해서 size만큼 배열이 생성 되었다.
 		listItems.toArray(new CharSequence[listItems.size()]);
-
-		builder.setItems(items, new DialogInterface.OnClickListener() {
-
+//		builder.setItems(items, new DialogInterface.OnClickListener() {
+//			@Override
+//			public void onClick(DialogInterface dialog, int item) {
+//				// TODO Auto-generated method stub
+//				if(item == mPariedDeviceCount) { // 연결할 장치를 선택하지 않고 '취소' 를 누른 경우.
+//					Toast.makeText(getApplicationContext(), "연결할 장치를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
+//					finish();
+//				}
+//				else { // 연결할 장치를 선택한 경우, 선택한 장치와 연결을 시도함.
+//					connectToSelectedDevice(items[1].toString(), items[0].toString());
+//				}
+//			}
+//
+//		});
+		builder.setMultiChoiceItems(items,
+				new boolean[]{false, false, false, false, false, false, false, false},
+				new DialogInterface.OnMultiChoiceClickListener() {
 			@Override
-			public void onClick(DialogInterface dialog, int item) {
-				// TODO Auto-generated method stub
-				if(item == mPariedDeviceCount) { // 연결할 장치를 선택하지 않고 '취소' 를 누른 경우.
-					Toast.makeText(getApplicationContext(), "연결할 장치를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
-					finish();
+			public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+				if(isChecked) {
+					selectedItems.add(items[which].toString());
 				}
-				else { // 연결할 장치를 선택한 경우, 선택한 장치와 연결을 시도함.
-					connectToSelectedDevice(items[1].toString(), items[0].toString());
+				else
+				{
+					selectedItems.remove(items[which]);
 				}
 			}
-
 		});
-
+		builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				if( selectedItems.size() == 0) {
+					Toast.makeText(MainActivity.this, "선택된 블루투스가 없습니다", Toast.LENGTH_SHORT).show();
+				} else {
+					connectToSelectedDevice(selectedItems.get(1), selectedItems.get(0));
+				}
+				}
+			});
+		// 우측(Negative Button) 에 출력될 버튼을 설정한다.
+		// 해당 버튼을 클릭했을 때 처리할 문장을 리스너로 구성해준다.
+		builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				// 대화상자를 취소하여 닫는다.
+				dialog.cancel();
+			}
+		});
 		builder.setCancelable(false);  // 뒤로 가기 버튼 사용 금지.
 		AlertDialog alert = builder.create();
 		alert.show();
