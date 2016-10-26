@@ -148,6 +148,7 @@ public class MainActivity extends ActionBarActivity {
 	int SEEKBAR_VALUE_P;
 
 	String tAlarmPeriod;
+	String pAlarmPeriod;
 
 	final List<String> selectedItems = new ArrayList<String>();
 
@@ -307,17 +308,18 @@ public class MainActivity extends ActionBarActivity {
 		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 36);
 		SEEKBAR_VALUE_P = prefs.getInt("SEEKBAR_VALUE_P", 70);
 		tAlarmPeriod = prefs.getString("tAlarmPeriod", "");
+		pAlarmPeriod = prefs.getString("pAlarmPeriod", "");
 
-      Toast.makeText(getApplicationContext(),
-            "값 : " + alarmOnOff
+//      Toast.makeText(getApplicationContext(),
+//            "값 : " + alarmOnOff
 //                  + " " + tAlarm
 //                  + " " + pAlarm
 //                  + " " + mAlarm
 //                  + " " + aAlarm
 //                  + " " + SEEKBAR_VALUE_T
 //                  + " " + SEEKBAR_VALUE_P
-					+ " " + tAlarmPeriod
-            , Toast.LENGTH_SHORT).show();
+//					+ " " + tAlarmPeriod
+//            , Toast.LENGTH_SHORT).show();
 
 	}
 

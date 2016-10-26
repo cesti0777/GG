@@ -30,7 +30,7 @@
             android:key="tAlarmPeriod"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
-            android:title="체온 알림 주기 설정" />
+            android:title="▶ 체온 알림 주기 설정" />
 
         <CheckBoxPreference
             android:defaultValue="true"
@@ -46,6 +46,15 @@
             android:summary="@string/settings_summary_p"
             android:text="@string/settings_unit_p"
             android:title="@string/settings_title_p" />
+        <ListPreference
+            android:defaultValue="0"
+            android:dependency="pAlarm"
+            android:entries="@array/pAlarmPeriod"
+            android:entryValues="@array/pAlarmPeriod_value"
+            android:key="pAlarmPeriod"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="▶ 체온 알림 주기 설정" />
 
         <CheckBoxPreference
             android:defaultValue="true"

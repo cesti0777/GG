@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 
 public class Setting extends PreferenceActivity {
@@ -45,8 +44,6 @@ public class Setting extends PreferenceActivity {
             int radius_p = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).getInt("SEEKBAR_VALUE_P", 50);
             _seekBarPref_p.setSummary(this.getString(R.string.settings_summary_p).replace("$1", ""+radius_p));
 
-            String value = sharedPreferences.getString(key, "");
-            Log.i("JO", "changed> "+key+"="+value);
 
         }
 
