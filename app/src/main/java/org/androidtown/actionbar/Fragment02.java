@@ -25,24 +25,24 @@ public class Fragment02 extends Fragment {
 		tv.setText("  심박이 정상이예요. \n" +
 				"   심박수 : "+num+" bpm");
 
-//		if(num>minNormal_p && num<maxNormal_p)
-//		{
-//			iv.setImageResource(R.drawable.heartbeat);
-//			tv.setText("  심박이 정상이예요. \n" +
-//					"   심박수 : "+num+" bpm");
-//		}
-//		else if(num>maxNormal_p)
-//		{
-//			iv.setImageResource(R.drawable.heartbeat);
-//			tv.setText("  심박이 빨라요. \n" +
-//					"   심박수 : "+num+" bpm");
-//		}
-//		else
-//		{
-//			iv.setImageResource(R.drawable.heartbeat);
-//			tv.setText("  심박이 느려요. \n" +
-//					"   심박수 : "+num+" bpm");
-//		}
+		if(num>minNormal_p && num<maxNormal_p)
+		{
+			iv.setImageResource(R.drawable.heartbeat);
+			tv.setText("  심박이 정상이예요. \n" +
+					"   심박수 : "+num+" bpm");
+		}
+		else if(num>maxNormal_p)
+		{
+			iv.setImageResource(R.drawable.heartbeat);
+			tv.setText("  심박이 빨라요. \n" +
+					"   심박수 : "+num+" bpm");
+		}
+		else
+		{
+			iv.setImageResource(R.drawable.heartbeat);
+			tv.setText("  심박이 느려요. \n" +
+					"   심박수 : "+num+" bpm");
+		}
 		return view;
 	}
 
