@@ -146,6 +146,7 @@ public class MainActivity extends ActionBarActivity {
 	boolean aAlarm;
 	double SEEKBAR_VALUE_T;
 	int SEEKBAR_VALUE_P;
+	String tAlarmPeriod;
 
 
 
@@ -303,22 +304,26 @@ public class MainActivity extends ActionBarActivity {
 		aAlarm = prefs.getBoolean("aAlarm", false);
 		SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 36);
 		SEEKBAR_VALUE_P = prefs.getInt("SEEKBAR_VALUE_P", 70);
-//
-//      Toast.makeText(getApplicationContext(),
-//            "값 : " + alarmOnOff
+		tAlarmPeriod = prefs.getString("tAlarmPeriod", "");
+
+      Toast.makeText(getApplicationContext(),
+            "값 : " + alarmOnOff
 //                  + " " + tAlarm
 //                  + " " + pAlarm
 //                  + " " + mAlarm
 //                  + " " + aAlarm
 //                  + " " + SEEKBAR_VALUE_T
 //                  + " " + SEEKBAR_VALUE_P
-//            , Toast.LENGTH_SHORT).show();
+					+ " " + tAlarmPeriod
+            , Toast.LENGTH_SHORT).show();
 
 	}
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
+
 
 
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 
 public class Setting extends PreferenceActivity {
@@ -15,6 +16,8 @@ public class Setting extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+
+
     }
 
     public static class MyPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener
@@ -22,11 +25,15 @@ public class Setting extends PreferenceActivity {
         private SeekBarPreference _seekBarPref_t;
         private SeekBarPreference _seekBarPref_p;
 
+
         @Override
         public void onCreate(final Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref);
+
+
+
         }
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
@@ -37,7 +44,12 @@ public class Setting extends PreferenceActivity {
 
             int radius_p = PreferenceManager.getDefaultSharedPreferences(this.getActivity()).getInt("SEEKBAR_VALUE_P", 50);
             _seekBarPref_p.setSummary(this.getString(R.string.settings_summary_p).replace("$1", ""+radius_p));
+
+            String value = sharedPreferences.getString(key, "");
+            Log.i("JO", "changed> "+key+"="+value);
+
         }
+
     }
 
 
