@@ -154,145 +154,132 @@ public class MainActivity extends ActionBarActivity {
 
 
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	public void createfireNotification() {  //온도알람 만들어주는 녀석
+	public void createNotification(int i) {  //알람 만들어주는 녀석
 
 		Intent intent = new Intent(MainActivity.this, MainActivity.class);
 
 		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
 
 		taskStackBuilder.addNextIntent(intent);
-
-		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
 
 		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 1111, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		nBuilder.setContentTitle("Baby Sitter");
-		nBuilder.setContentText("아이 체온이 높아요!!");
-		nBuilder.setSmallIcon(R.drawable.babycrying);
-
-		nBuilder.setContentIntent(pendingIntent);
-		nBuilder.setAutoCancel(true);
-
-		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
-		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
-
-		nBuilder.setVibrate(new long[] {100,2000,500,2000});
-		nBuilder.setLights(Color.RED, 400, 400);
-
-
-
-		//nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
-
 		Notification notification = nBuilder.build();
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
-		nm.notify(0, notification);
+		switch (i){
+			case 1: //고온 알람
+				pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				nBuilder = new NotificationCompat.Builder(this);
+				nBuilder.setContentTitle("Baby Sitter");
+				nBuilder.setContentText("아이 체온이 높아요!");
+				nBuilder.setSmallIcon(R.drawable.babycrying);
+
+				nBuilder.setContentIntent(pendingIntent);
+				nBuilder.setAutoCancel(true);
+
+				nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
+				nBuilder.setVibrate(new long[] {100,2000,500,2000});
+				nBuilder.setLights(Color.RED, 400, 400);
+
+				notification = nBuilder.build();
+				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+				nm.notify(0, notification);
+				break;
+			case 2: //미열 알람
+				pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				nBuilder = new NotificationCompat.Builder(this);
+				nBuilder.setContentTitle("Baby Sitter");
+				nBuilder.setContentText("아이에게 미열이 있는거 같아요!");
+				nBuilder.setSmallIcon(R.drawable.babycrying);
+
+				nBuilder.setContentIntent(pendingIntent);
+				nBuilder.setAutoCancel(true);
+
+				nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
+				nBuilder.setVibrate(new long[] {100,2000,500,2000});
+				nBuilder.setLights(Color.RED, 400, 400);
+
+				notification = nBuilder.build();
+				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+				nm.notify(1, notification);
+				break;
+			case 3: //저온 알람
+				pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				nBuilder = new NotificationCompat.Builder(this);
+				nBuilder.setContentTitle("Baby Sitter");
+				nBuilder.setContentText("아이 체온이 낮아요!");
+				nBuilder.setSmallIcon(R.drawable.babycrying);
+
+				nBuilder.setContentIntent(pendingIntent);
+				nBuilder.setAutoCancel(true);
+
+				nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
+				nBuilder.setVibrate(new long[] {100,2000,500,2000});
+				nBuilder.setLights(Color.RED, 400, 400);
+
+				notification = nBuilder.build();
+				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+				nm.notify(2, notification);
+				break;
+			case 4: //자세알람
+				pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				nBuilder = new NotificationCompat.Builder(this);
+				nBuilder.setContentTitle("Baby Sitter");
+				nBuilder.setContentText("아이 자세가 이상한거 같아요!");
+				nBuilder.setSmallIcon(R.drawable.babycrying);
+
+				nBuilder.setContentIntent(pendingIntent);
+				nBuilder.setAutoCancel(true);
+
+				nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
+				nBuilder.setVibrate(new long[] {100,2000,500,2000});
+				nBuilder.setLights(Color.RED, 400, 400);
+
+				notification = nBuilder.build();
+				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+				nm.notify(3, notification);
+				break;
+			case 5:
+				pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				nBuilder = new NotificationCompat.Builder(this);
+				nBuilder.setContentTitle("Baby Sitter");
+				nBuilder.setContentText("아이 위험구역에 접근한거 같아요!");
+				nBuilder.setSmallIcon(R.drawable.babycrying);
+
+				nBuilder.setContentIntent(pendingIntent);
+				nBuilder.setAutoCancel(true);
+
+				nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
+				nBuilder.setVibrate(new long[] {100,2000,500,2000});
+				nBuilder.setLights(Color.RED, 400, 400);
+
+				notification = nBuilder.build();
+				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+				nm.notify(4, notification);
+				break;
+		}
 	}
 
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	public void createcoldNotification() {  //온도알람 만들어주는 녀석
-
-		Intent intent = new Intent(MainActivity.this, MainActivity.class);
-
-		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
-
-		taskStackBuilder.addNextIntent(intent);
-
-		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
-
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 1111, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		nBuilder.setContentTitle("Baby Sitter");
-		nBuilder.setContentText("아이 체온이 낮아요!!");
-		nBuilder.setSmallIcon(R.drawable.babycold);
-
-		nBuilder.setContentIntent(pendingIntent);
-		nBuilder.setAutoCancel(true);
-
-		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
-		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
-
-		nBuilder.setVibrate(new long[] {100,2000,500,2000});
-		nBuilder.setLights(Color.RED, 400, 400);
 
 
 
-		//nBuilder.addAction(R.drawable.ic_open, "Open", actionPendingIntent);
-
-		Notification notification = nBuilder.build();
-		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-
-		nm.notify(1, notification);
-	}
-
-
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	public void createaccNotification() {  //움직임알람 만들어주는 녀석
-
-		Intent intent = new Intent(MainActivity.this, MainActivity.class);
-		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
-		taskStackBuilder.addNextIntent(intent);
-
-		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
-
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 2222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		nBuilder.setContentTitle("Baby Sitter");
-		nBuilder.setContentText("아이의 움직임 상태를 확인해주세요!");
-		nBuilder.setSmallIcon(R.drawable.active2);
-
-		nBuilder.setContentIntent(pendingIntent);
-		nBuilder.setAutoCancel(true);
-
-		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
-		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
-
-		nBuilder.setVibrate(new long[] {100,2000,500,2000});
-		nBuilder.setLights(Color.RED, 400, 400);
-
-		Notification notification = nBuilder.build();
-		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-
-		nm.notify(2, notification);
-	}
-
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	public void createmotionNotification() {  //움직임알람 만들어주는 녀석
-
-		Intent intent = new Intent(MainActivity.this, MainActivity.class);
-		TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
-		taskStackBuilder.addNextIntent(intent);
-
-		Intent actionIntent = new Intent(MainActivity.this, MainActivity.class);
-
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_UPDATE_CURRENT);
-		PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 2222, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		nBuilder.setContentTitle("Baby Sitter");
-		nBuilder.setContentText("아이가 뒤집기를 한거 같아요!!");
-		nBuilder.setSmallIcon(R.drawable.danger);
-
-		nBuilder.setContentIntent(pendingIntent);
-		nBuilder.setAutoCancel(true);
-
-		nBuilder.setDefaults(Notification.DEFAULT_SOUND);
-		nBuilder.setDefaults(Notification.FLAG_INSISTENT);
-
-		nBuilder.setVibrate(new long[] {100,2000,500,2000});
-		nBuilder.setLights(Color.RED, 400, 400);
-
-		Notification notification = nBuilder.build();
-		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-
-		nm.notify(3, notification);
-	}
 
 	//------------형준
 
@@ -562,7 +549,7 @@ public class MainActivity extends ActionBarActivity {
 
 												if (firealarm == 30) {
 													if (tAlarm == true && alarmOnOff == true) {
-														createfireNotification();
+														createNotification(1);
 
 													}
 													firealarm = 0;
@@ -578,7 +565,7 @@ public class MainActivity extends ActionBarActivity {
 											if (accok == true) {
 												if (accnoti > 1 && accnoti < 100) {  //움직임이 없으면
 													if (mAlarm == true && alarmOnOff == true) {
-														createaccNotification(); //움직임이 확인
+														createNotification(2); //움직임이 확인
 													}
 													accok = false;
 												}
@@ -648,6 +635,8 @@ public class MainActivity extends ActionBarActivity {
 
 									distance = testdata2;
 
+									if(distance<12)
+										createNotification(5);
 
 									readBufferPosition2 = 0;
 

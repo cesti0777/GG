@@ -21,12 +21,12 @@ public class Fragment04 extends Fragment {
 		if(num0 < 20)
 		{
 			iv.setImageResource(R.drawable.warning);
-			tv.setText("아이가 접근금지 구역에 접근중!"+num0);
+			tv.setText("아이가 접근금지 구역에 접근중!");
 		}
 		else
 		{
 			iv.setImageResource(R.drawable.safe);
-			tv.setText(" 아이가 안전해요."+num0);
+			tv.setText(" 아이가 안전해요.");
 		}
 		return view;
 	}
