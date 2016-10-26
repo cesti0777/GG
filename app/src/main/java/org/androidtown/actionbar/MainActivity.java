@@ -17,6 +17,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -50,11 +51,12 @@ public class MainActivity extends ActionBarActivity {
 	private static final String ARG_PARAM1 = "온도";
 	private static final String ARG_PARAM2 = "정상온도 임계값";
 	private static final String ARG_PARAM3 = "심박수";
-	private static final String ARG_PARAM4 = "X축";
+	private static final String ARG_PARAM4 = "Z축";
 	private static final String ARG_PARAM5 = "Y축";
 	private static final String ARG_PARAM6 = "Z축";
 	private static final String ARG_PARAM7 = "정상 심박수 임계값";
 	private static final String ARG_PARAM8 = "거리값";
+	private CountDownTimer timer;
 
 	/**
 	 * 설정 액티비티를 띄우기 위한 요청코드
@@ -93,16 +95,12 @@ public class MainActivity extends ActionBarActivity {
 	int tempertmp1; //정수형태 온도반영
 	double tempertmp2; //소수형태 온도반영
 	double temperature; //센싱된 온도값(가공전)
-	double pcstemp=0; // 가공중인 온도값
-	double finaltemperature=0; //가동된 최종 온도값
-	double[] temperarray; //센싱된 온도값들 모을 배열들
-	int arraycount=0; // 온도배열 자리수 체크
-	int tempercount=0; // 센싱된 온도수
-	boolean checktmp = false;
+	boolean checkFever = true; //고열 알림주기 체크
+	boolean checkSlight = true; //미열 알림주기 체크
+	boolean checkHypothermia = true; //저체온 알림주기 체크
 
 
 
-	int accdata;
 
 	Thread mWorkerThread = null;
 	byte[] readBuffer; //아기용
@@ -112,21 +110,21 @@ public class MainActivity extends ActionBarActivity {
 	byte[] readBuffer2; //접근용
 	int readBufferPosition2;
 
-	//온도 알람에 대한 주기 설정
-	int firealarm = 30;
+
 
 	//심박수 변수들
 	int heartbeat;
+	boolean checkHeart = true;
 
 
 	//움직임 변수들
-	int accx;
-	int accy;
-	int accz;
+	int accdata;
+	boolean checkMove = true;
 
 
 	//거리값 변수들
 	int distance;
+	boolean checkAccess = true; // 접근 알림주기 체크
 
 
 
@@ -162,11 +160,11 @@ public class MainActivity extends ActionBarActivity {
 
 		taskStackBuilder.addNextIntent(intent);
 
-		PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent;
 
-		NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
-		Notification notification = nBuilder.build();
-		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+		NotificationCompat.Builder nBuilder;
+		Notification notification;
+		NotificationManager nm;
 
 		switch (i){
 			case 1: //고온 알람
@@ -232,8 +230,29 @@ public class MainActivity extends ActionBarActivity {
 
 				nm.notify(2, notification);
 				break;
-			case 4: //자세알람
+			case 4: //심박수알람
 				pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				nBuilder = new NotificationCompat.Builder(this);
+				nBuilder.setContentTitle("Baby Sitter");
+				nBuilder.setContentText("아이 심박수가 이상해요!");
+				nBuilder.setSmallIcon(R.drawable.babycrying);
+
+				nBuilder.setContentIntent(pendingIntent);
+				nBuilder.setAutoCancel(true);
+
+				nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
+				nBuilder.setVibrate(new long[] {100,2000,500,2000});
+				nBuilder.setLights(Color.RED, 400, 400);
+
+				notification = nBuilder.build();
+				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+				nm.notify(3, notification);
+				break;
+			case 5: //자세알람
+				pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				nBuilder = new NotificationCompat.Builder(this);
 				nBuilder.setContentTitle("Baby Sitter");
@@ -251,10 +270,10 @@ public class MainActivity extends ActionBarActivity {
 				notification = nBuilder.build();
 				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
-				nm.notify(3, notification);
+				nm.notify(4, notification);
 				break;
-			case 5:
-				pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_UPDATE_CURRENT);
+			case 6: //접근알람
+				pendingIntent = taskStackBuilder.getPendingIntent(666, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				nBuilder = new NotificationCompat.Builder(this);
 				nBuilder.setContentTitle("Baby Sitter");
@@ -272,14 +291,10 @@ public class MainActivity extends ActionBarActivity {
 				notification = nBuilder.build();
 				nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
-				nm.notify(4, notification);
+				nm.notify(5, notification);
 				break;
 		}
 	}
-
-
-
-
 
 	//------------형준
 
@@ -473,10 +488,10 @@ public class MainActivity extends ActionBarActivity {
 		final Handler handler = new Handler();
 
 		readBufferPosition = 0;                 // 버퍼 내 수신 문자 저장 위치.
-		readBuffer = new byte[512];            // 수신 버퍼.
+		readBuffer = new byte[1024];            // 수신 버퍼.
 
 		readBufferPosition2 = 0;                 // 버퍼 내 수신 문자 저장 위치.
-		readBuffer2 = new byte[512];            // 수신 버퍼.
+		readBuffer2 = new byte[1024];            // 수신 버퍼.
 
 		// 문자열 수신 쓰레드.
 		mWorkerThread = new Thread(new Runnable() {
@@ -514,20 +529,11 @@ public class MainActivity extends ActionBarActivity {
 										tempertmp1 = testdata / 10;
 										tempertmp2 = (testdata % 10) * (0.1);
 										temperature = tempertmp1 + tempertmp2;
-
-//                              //아웃라이어값 찾기
-
-
 									} else if (testdata > 20000 && testdata < 30000) { //심박수값
 										heartbeat = testdata - 20000;
 									} else if (testdata > 30000 && testdata < 40000) { //x값
-										accx = testdata - 30000;
-									} else if (testdata > 40000 && testdata < 50000) { //y값
-										accy = testdata - 40000;
-									} else if (testdata > 50000 && testdata < 60000) { //z값
-										accz = testdata - 50000;
+										accdata = testdata - 30000;
 									}
-
 
 									readBufferPosition = 0;
 
@@ -546,30 +552,67 @@ public class MainActivity extends ActionBarActivity {
 											pagerAdapter.notifyDataSetChanged();
 
 											if (temperature < minNormal_t || temperature > maxNormal_t) {
-
-												if (firealarm == 30) {
-													if (tAlarm == true && alarmOnOff == true) {
+												if(temperature > maxNormal_t){
+													if(checkFever==true){
 														createNotification(1);
-
 													}
-													firealarm = 0;
-												} else if (firealarm < 30) {
-													firealarm++;
+													else {
+														timer = new CountDownTimer(Integer.valueOf(tAlarmPeriod) * 1000, 1000) //주기 * 1000ms 를 한번count 할때마다 1000ms 씩 줄일게
+														{
+															@Override
+															public void onTick(long l) {
+																checkFever = false;
+															}
+
+															@Override
+															public void onFinish() {
+																checkFever = true;
+															}
+														};
+													}
+												}
+												else if(temperature < minNormal_t) {
+													if(checkHypothermia==true){
+														createNotification(3);
+													}
+													else {
+														timer = new CountDownTimer(Integer.valueOf(tAlarmPeriod) * 1000, 1000) //주기 * 1000ms 를 한번count 할때마다 1000ms 씩 줄일게
+														{
+															@Override
+															public void onTick(long l) {
+																checkHypothermia = false;
+															}
+
+															@Override
+															public void onFinish() {
+																checkHypothermia = true;
+															}
+														};
+													}
 												}
 											}
 
-											if (temperature < minNormal_p || temperature > maxNormal_p) {
-												//-------------심박 알람 추가--------------//
-											}
+											if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
+												if(checkHeart==true){
+													createNotification(4);
+												}
+												else{
+													timer = new CountDownTimer(Integer.valueOf(pAlarmPeriod) * 1000, 1000) //주기 * 1000ms 를 한번count 할때마다 1000ms 씩 줄일게
+													{
+														@Override
+														public void onTick(long l) {
+															checkHypothermia = false;
+														}
 
-											if (accok == true) {
-												if (accnoti > 1 && accnoti < 100) {  //움직임이 없으면
-													if (mAlarm == true && alarmOnOff == true) {
-														createNotification(2); //움직임이 확인
-													}
-													accok = false;
+														@Override
+														public void onFinish() {
+															checkHypothermia = true;
+														}
+													};
 												}
 											}
+
+
 
 										}
 
@@ -592,7 +635,6 @@ public class MainActivity extends ActionBarActivity {
 		});
 		mWorkerThread.start();
 	}
-
 
 	void beginListenForData2() {
 
@@ -868,9 +910,8 @@ public class MainActivity extends ActionBarActivity {
 			} else if (index == 2) {
 				frag = new Fragment03();
 				Bundle args = new Bundle();
-				args.putInt(ARG_PARAM4, accx);
-				args.putInt(ARG_PARAM5, accy);
-				args.putInt(ARG_PARAM6, accz);
+				args.putInt(ARG_PARAM4, accdata);
+
 				frag.setArguments(args);
 			} else if (index == 3) {
 				frag = new Fragment04();

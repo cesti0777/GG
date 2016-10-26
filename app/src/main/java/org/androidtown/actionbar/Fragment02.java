@@ -22,10 +22,11 @@ public class Fragment02 extends Fragment {
 		TextView tv = (TextView) view.findViewById(R.id.text02);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv2);
 		iv.setImageResource(R.drawable.heartbeat);
-		tv.setText("  심박이 정상이예요. \n" +
-				"   심박수 : "+num+" bpm");
+		if(num==0){
+			tv.setText("  심박을 제고있어요. \n");
+		}
 
-		if(num>minNormal_p && num<maxNormal_p)
+		else if(num>minNormal_p && num<maxNormal_p)
 		{
 			iv.setImageResource(R.drawable.heartbeat);
 			tv.setText("  심박이 정상이예요. \n" +

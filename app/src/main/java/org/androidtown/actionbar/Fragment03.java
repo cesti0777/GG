@@ -9,19 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Fragment03 extends Fragment {
-	private static final String ARG_PARAM4 = "X축";
+	private static final String ARG_PARAM4 = "Z축";
 	private static final String ARG_PARAM5 = "Y축";
 	private static final String ARG_PARAM6 = "Z축";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
 		int  num1 = getArguments().getInt(ARG_PARAM4);
-		int  num2 = getArguments().getInt(ARG_PARAM5);
-		int  num3 = getArguments().getInt(ARG_PARAM6);
+		//int  num2 = getArguments().getInt(ARG_PARAM5);
+		//int  num3 = getArguments().getInt(ARG_PARAM6);
 //		int num = 40;
 		View view = inflater.inflate(R.layout.frag03, container, false);
 		TextView tv = (TextView) view.findViewById(R.id.text03);
-		tv.setText("X축 : "+num1+" Y축 : "+num2+" Z축 : "+num3);
+		tv.setText("Z축 : "+num1);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv3);
 //		if(num >= 1000)
 //		{
