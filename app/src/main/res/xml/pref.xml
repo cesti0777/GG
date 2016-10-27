@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="상태이상 알람">
         <SwitchPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="alarmOnOff"
             android:summary="상태이상 알람를 설정합니다"
             android:switchTextOff="OFF"
@@ -23,7 +23,7 @@
             android:text="@string/settings_unit_t"
             android:title="@string/settings_title_t" />
         <ListPreference
-            android:defaultValue="0"
+            android:defaultValue="1"
             android:dependency="tAlarm"
             android:entries="@array/tAlarmPeriod"
             android:entryValues="@array/tAlarmPeriod_value"
@@ -47,20 +47,29 @@
             android:text="@string/settings_unit_p"
             android:title="@string/settings_title_p" />
         <ListPreference
-            android:defaultValue="0"
+            android:defaultValue="1"
             android:dependency="pAlarm"
             android:entries="@array/pAlarmPeriod"
             android:entryValues="@array/pAlarmPeriod_value"
             android:key="pAlarmPeriod"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
-            android:title="▶ 체온 알림 주기 설정" />
+            android:title="▶ 심박 알림 주기 설정" />
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="alarmOnOff"
             android:key="mAlarm"
             android:title="움직임이상 알람 사용" />
+        <ListPreference
+            android:defaultValue="1"
+            android:dependency="mAlarm"
+            android:entries="@array/mAlarmPeriod"
+            android:entryValues="@array/mAlarmPeriod_value"
+            android:key="mAlarmPeriod"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="▶ 움직임 알림 주기 설정" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="alarmOnOff"

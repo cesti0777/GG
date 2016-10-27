@@ -51,4 +51,25 @@
         <item>60</item>
     </string-array>
 
+    <string-array name="mAlarmPeriod">
+        <item>1분</item>
+        <item>3분</item>
+        <item>5분</item>
+        <item>10분</item>
+        <item>20분</item>
+        <item>30분</item>
+        <item>60분</item>
+
+    </string-array>
+    <string-array name="mAlarmPeriod_value">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
+
 </resources>
