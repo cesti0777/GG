@@ -542,8 +542,13 @@ public class MainActivity extends ActionBarActivity {
 										temperature = tempertmp1 + tempertmp2;
 									} else if (testdata > 20000 && testdata < 30000) { //심박수값
 										heartbeat = testdata - 20000;
-									} else if (testdata > 30000 && testdata < 40000) { //z값
-										movedata = testdata - 30000;
+									} else if (testdata > 90000 && testdata < 110000) { //z값
+										if(testdata<100000){
+											movedata = testdata-100000;
+										}
+										else{
+											movedata = testdata - 100000;
+										}
 									}
 
 									readBufferPosition = 0;
@@ -564,13 +569,13 @@ public class MainActivity extends ActionBarActivity {
 
 											if (temperature < minNormal_t || temperature > maxNormal_t) {
 												if(temperature > maxNormal_t){
-													Log.v("체크", ""+checkFever);
-													if(checkFever==true){
+
+													if(checkFever){
 														createNotification(1);
 														checkFever=false;
 														fnotiCount=0;
 													}
-													else if(checkFever == false){
+													else {
 														if(fnotiCount<(talarmPeriod*30)){
 															fnotiCount++;
 														}
@@ -581,12 +586,12 @@ public class MainActivity extends ActionBarActivity {
 
 												}
 												else if(temperature < minNormal_t) {
-													if(checkHypothermia==true){
+													if(checkHypothermia){
 														createNotification(3);
 														checkHypothermia = false;
 														hnotiCount=0;
 													}
-													else if(checkHypothermia==false){
+													else{
 														if(hnotiCount<(talarmPeriod*30)){
 															hnotiCount++;
 														}
@@ -598,7 +603,7 @@ public class MainActivity extends ActionBarActivity {
 												}
 											}
 											if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
-												if(checkHeart==true){
+												if(checkHeart){
 													createNotification(4);
 													checkHeart = false;
 												}
@@ -612,7 +617,9 @@ public class MainActivity extends ActionBarActivity {
 												}
 											}
 
-											//if(movedata)
+											if(movedata>1000){
+												createNotification(4);
+											}
 										}
 									});
 								} else {
@@ -674,7 +681,7 @@ public class MainActivity extends ActionBarActivity {
 
 									distance = testdata2;
 
-									if(distance<12)
+									if(distance<15)
 										createNotification(5);
 
 									readBufferPosition2 = 0;
