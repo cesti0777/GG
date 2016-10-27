@@ -12,7 +12,7 @@
     <string name="settings_unit_t">℃</string>
     <string name="settings_title_t">▶ 정상 온도 설정</string>
 
-    <string name="settings_dialog_message_p">정상 심박수 : 설정값과의 오차 ?????</string>
+    <string name="settings_dialog_message_p">정상 심박수 : 설정값과의 오차 +-5</string>
     <string name="settings_summary_p"></string>
     <string name="settings_unit_p">BPM</string>
     <string name="settings_title_p">▶ 정상 심박수 설정</string>

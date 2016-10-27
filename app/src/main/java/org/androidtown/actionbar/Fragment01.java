@@ -34,26 +34,26 @@ public class Fragment01 extends Fragment {
 		else if(num>minNormal && num<maxNormal)
 		{
 			iv.setImageResource(R.drawable.babysmile);
-			tv.setText(" 정상이예요. \n" +
-					"     체온 : "+num+" ℃");
+			tv.setText("  정상이예요. \n" +
+					"  체온 : "+num+" ℃");
 		}
 		else if(num>maxNormal && num<maxNormal+1)
 		{
 			iv.setImageResource(R.drawable.babysad);
-			tv.setText(" 미열이 있어요. \n" +
-					"     체온 : "+num+" ℃");
+			tv.setText("   미열이 있어요. \n" +
+					"  체온 : "+num+" ℃");
 		}
 		else if(num<maxNormal)
 		{
 			iv.setImageResource(R.drawable.babycold);
-			tv.setText(" 저체온이예요. \n" +
-					"     체온 : "+num+" ℃");
+			tv.setText("   저체온이예요. \n" +
+					"  체온 : "+num+" ℃");
 		}
 		else
 		{
 			iv.setImageResource(R.drawable.babycrying);
 			tv.setText("   고열이 있어요. \n" +
-					"     체온 : "+num+" ℃");
+					"  체온 : "+num+" ℃");
 		}
 		return view;
 	}

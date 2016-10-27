@@ -188,6 +188,21 @@ public class MainActivity extends ActionBarActivity {
             e.printStackTrace();
         }
 
+        tAlarmPeriod = "1";
+        pAlarmPeriod = "1";
+        mAlarmPeriod = "1";
+        tAlarmPeriod_int = 1;
+        pAlarmPeriod_int = 1;
+        mAlarmPeriod_int = 1;
+        tAbnormal = false;
+        tAbnormalCnt = 0;
+        pAbnormal = false;
+        pAbnormalCnt = 0;
+        mAbnormal = false;
+        mAbnormalCnt = 0;
+
+
+
         tabhost = (MaterialTabHost) this.findViewById(R.id.tabhost);
         pager = (ViewPager) this.findViewById(R.id.pager);
 
@@ -734,7 +749,7 @@ public class MainActivity extends ActionBarActivity {
                                     distance = testdata2;
                                     if (aAlarm) {
                                         if (distance < 15)
-                                            createNotification(5);
+                                            createNotification(6);
                                     }
                                     readBufferPosition2 = 0;
 
