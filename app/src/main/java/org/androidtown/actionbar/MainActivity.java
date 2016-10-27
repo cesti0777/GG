@@ -28,6 +28,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.internal.view.menu.ActionMenuItemView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -96,8 +97,10 @@ public class MainActivity extends ActionBarActivity {
 	double tempertmp2; //소수형태 온도반영
 	double temperature; //센싱된 온도값(가공전)
 	boolean checkFever = true; //고열 알림주기 체크
+	int fnotiCount=0;
 	boolean checkSlight = true; //미열 알림주기 체크
 	boolean checkHypothermia = true; //저체온 알림주기 체크
+	int hnotiCount=0;
 
 
 
@@ -112,13 +115,15 @@ public class MainActivity extends ActionBarActivity {
 
 
 
+
 	//심박수 변수들
 	int heartbeat;
 	boolean checkHeart = true;
+	int pnotiCount = 0;
 
 
 	//움직임 변수들
-	int accdata;
+	int movedata;
 	boolean checkMove = true;
 
 
@@ -145,8 +150,12 @@ public class MainActivity extends ActionBarActivity {
 	double SEEKBAR_VALUE_T;
 	int SEEKBAR_VALUE_P;
 
-	String tAlarmPeriod;
-	String pAlarmPeriod;
+	String tAlarmPeriod="1";
+	int talarmPeriod = Integer.valueOf(tAlarmPeriod);
+
+	String pAlarmPeriod="1";
+	int palarmPeriod = Integer.valueOf(pAlarmPeriod);
+
 
 	final List<String> selectedItems = new ArrayList<String>();
 
@@ -483,6 +492,8 @@ public class MainActivity extends ActionBarActivity {
 		}
 	}
 
+
+
 	// 데이터 수신(쓰레드 사용 수신된 메시지를 계속 검사함)
 	void beginListenForData() {
 		final Handler handler = new Handler();
@@ -531,8 +542,8 @@ public class MainActivity extends ActionBarActivity {
 										temperature = tempertmp1 + tempertmp2;
 									} else if (testdata > 20000 && testdata < 30000) { //심박수값
 										heartbeat = testdata - 20000;
-									} else if (testdata > 30000 && testdata < 40000) { //x값
-										accdata = testdata - 30000;
+									} else if (testdata > 30000 && testdata < 40000) { //z값
+										movedata = testdata - 30000;
 									}
 
 									readBufferPosition = 0;
@@ -553,70 +564,56 @@ public class MainActivity extends ActionBarActivity {
 
 											if (temperature < minNormal_t || temperature > maxNormal_t) {
 												if(temperature > maxNormal_t){
+													Log.v("체크", ""+checkFever);
 													if(checkFever==true){
 														createNotification(1);
+														checkFever=false;
+														fnotiCount=0;
 													}
-													else {
-														timer = new CountDownTimer(Integer.valueOf(tAlarmPeriod) * 1000, 1000) //주기 * 1000ms 를 한번count 할때마다 1000ms 씩 줄일게
-														{
-															@Override
-															public void onTick(long l) {
-																checkFever = false;
-															}
+													else if(checkFever == false){
+														if(fnotiCount<(talarmPeriod*30)){
+															fnotiCount++;
+														}
+														else{
+															checkFever=true;
+														}
+													}
 
-															@Override
-															public void onFinish() {
-																checkFever = true;
-															}
-														};
-													}
 												}
 												else if(temperature < minNormal_t) {
 													if(checkHypothermia==true){
 														createNotification(3);
+														checkHypothermia = false;
+														hnotiCount=0;
 													}
-													else {
-														timer = new CountDownTimer(Integer.valueOf(tAlarmPeriod) * 1000, 1000) //주기 * 1000ms 를 한번count 할때마다 1000ms 씩 줄일게
-														{
-															@Override
-															public void onTick(long l) {
-																checkHypothermia = false;
-															}
+													else if(checkHypothermia==false){
+														if(hnotiCount<(talarmPeriod*30)){
+															hnotiCount++;
+														}
+														else{
+															checkHypothermia = true;
+														}
+													}
 
-															@Override
-															public void onFinish() {
-																checkHypothermia = true;
-															}
-														};
-													}
 												}
 											}
-
 											if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
 												if(checkHeart==true){
 													createNotification(4);
+													checkHeart = false;
 												}
 												else{
-													timer = new CountDownTimer(Integer.valueOf(pAlarmPeriod) * 1000, 1000) //주기 * 1000ms 를 한번count 할때마다 1000ms 씩 줄일게
-													{
-														@Override
-														public void onTick(long l) {
-															checkHypothermia = false;
-														}
-
-														@Override
-														public void onFinish() {
-															checkHypothermia = true;
-														}
-													};
+													if(hnotiCount<(palarmPeriod*4)){
+														hnotiCount++;
+													}
+													else{
+														checkHeart = true;
+													}
 												}
 											}
 
-
-
+											//if(movedata)
 										}
-
-
 									});
 								} else {
 									readBuffer[readBufferPosition++] = b;
@@ -672,7 +669,7 @@ public class MainActivity extends ActionBarActivity {
 									System.arraycopy(readBuffer2, 0, encodedBytes2, 0, encodedBytes2.length);
 
 									final String data2 = new String(encodedBytes2, 0, encodedBytes2.length-1);
-									//                        Log.v("거리값",data2);
+
 									int testdata2 = Integer.valueOf(data2);
 
 									distance = testdata2;
@@ -910,7 +907,7 @@ public class MainActivity extends ActionBarActivity {
 			} else if (index == 2) {
 				frag = new Fragment03();
 				Bundle args = new Bundle();
-				args.putInt(ARG_PARAM4, accdata);
+				args.putInt(ARG_PARAM4, movedata);
 
 				frag.setArguments(args);
 			} else if (index == 3) {
