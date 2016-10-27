@@ -28,6 +28,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.internal.view.menu.ActionMenuItemView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -143,8 +144,8 @@ public class MainActivity extends ActionBarActivity {
 
 	String tAlarmPeriod = null;
 	String pAlarmPeriod = null;
-	int tAlarmPeriod_int;
-	int pAlarmPeriod_int;
+	int tAlarmPeriod_int = 1;
+	int pAlarmPeriod_int = 1;
 	boolean tAbnormal = false;
 	int tAbnormalCnt = 0;
 	boolean pAbnormal = false;
@@ -607,49 +608,53 @@ public class MainActivity extends ActionBarActivity {
 											int maxNormal_p = SEEKBAR_VALUE_P + 5;
 
 											pagerAdapter.notifyDataSetChanged();
-
-											if(tAbnormal==false) {
-												if (temperature < minNormal_t || temperature > maxNormal_t) {
-													tAbnormal = true;
-													if (temperature > maxNormal_t + 1) {
-														createNotification(1);
-													} else if (temperature > maxNormal_t && temperature < maxNormal_t + 1) {
-														createNotification(2);
-													} else if (temperature < minNormal_t) {
-														createNotification(3);
-													}
-												}
-											}
-											else{
-												if(tAbnormalCnt == tAlarmPeriod_int*2*60)
-												{
-													tAbnormalCnt = 0;
-													tAbnormal = false;
-												}
-												tAbnormalCnt++;
-											}
-
-											if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
-
-												if(pAbnormal==false) {
+											Log.v("tabn", ""+tAbnormal);
+											if(tAlarm==true) {
+												if (tAbnormal == false) {
 													if (temperature < minNormal_t || temperature > maxNormal_t) {
-														pAbnormal = true;
-														createNotification(4);
+														tAbnormal = true;
+														if (temperature > maxNormal_t + 1) {
+															createNotification(1);
+														} else if (temperature > maxNormal_t && temperature < maxNormal_t + 1) {
+															createNotification(2);
+														} else if (temperature < minNormal_t) {
+															createNotification(3);
+														}
 													}
-												}
-												else{
-													if(pAbnormalCnt == tAlarmPeriod_int*60/8)
-													{
-														pAbnormalCnt = 0;
-														pAbnormal = false;
+												} else {
+													if (tAbnormalCnt == tAlarmPeriod_int * 2 * 60) {
+														tAbnormalCnt = 0;
+														tAbnormal = false;
 													}
-													pAbnormalCnt++;
+													Log.v("period값", "" + tAlarmPeriod_int);
+													Log.v("CNT값", "" + tAbnormalCnt);
+													tAbnormalCnt++;
 												}
-
 											}
+											if(pAlarm==true) {
+												if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
 
-											if(movedata>1000){
-												createNotification(4);
+													if (pAbnormal == false) {
+														if (temperature < minNormal_t || temperature > maxNormal_t) {
+															pAbnormal = true;
+															createNotification(4);
+														}
+													} else {
+														if (pAbnormalCnt == pAlarmPeriod_int * 60 / 8) {
+															pAbnormalCnt = 0;
+															pAbnormal = false;
+														}
+														Log.v("pperiod", ""+pAlarmPeriod_int);
+														Log.v("pulseCNT", ""+pAbnormalCnt);
+														pAbnormalCnt++;
+													}
+
+												}
+											}
+											if(mAlarm==true) {
+												if (movedata > 1000) {
+													createNotification(4);
+												}
 											}
 										}
 									});
@@ -710,10 +715,10 @@ public class MainActivity extends ActionBarActivity {
 									int testdata2 = Integer.valueOf(data2);
 
 									distance = testdata2;
-
-									if (distance < 15)
-										createNotification(5);
-
+									if(aAlarm) {
+										if (distance < 15)
+											createNotification(5);
+									}
 									readBufferPosition2 = 0;
 
 								} else {
