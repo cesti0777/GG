@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -36,6 +37,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.neokree.materialtabs.MaterialTab;
 import com.neokree.materialtabs.MaterialTabHost;
 import com.neokree.materialtabs.MaterialTabListener;
@@ -157,6 +162,11 @@ public class MainActivity extends ActionBarActivity {
 
 
     final List<String> selectedItems = new ArrayList<String>();
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
 
     @Override
@@ -202,7 +212,6 @@ public class MainActivity extends ActionBarActivity {
         mAbnormalCnt = 0;
 
 
-
         tabhost = (MaterialTabHost) this.findViewById(R.id.tabhost);
         pager = (ViewPager) this.findViewById(R.id.pager);
 
@@ -231,6 +240,9 @@ public class MainActivity extends ActionBarActivity {
 
         // 처음 선택된 탭을 지정합니다.
         tabhost.setSelectedNavigationItem(0);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
@@ -256,6 +268,42 @@ public class MainActivity extends ActionBarActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Main Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 
 
@@ -400,9 +448,12 @@ public class MainActivity extends ActionBarActivity {
     public void createNotification(int i) {  //알람 만들어주는 녀석
 
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
-        taskStackBuilder.addNextIntent(intent);
-        PendingIntent pendingIntent;
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, Fragment01.class), PendingIntent.FLAG_UPDATE_CURRENT );
+        //PendingIntent pendingIntent = PendingIntent.getService(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+        //TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
+        //taskStackBuilder.addNextIntent(intent);
+
         NotificationCompat.Builder nBuilder;
         nBuilder = new NotificationCompat.Builder(this);
         Notification notification;
@@ -411,6 +462,7 @@ public class MainActivity extends ActionBarActivity {
 
         nBuilder.setContentTitle("아이케어");
         nBuilder.setSmallIcon(R.drawable.babycrying);
+        nBuilder.setContentIntent(pendingIntent);
         nBuilder.setAutoCancel(true);
         nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
         nBuilder.setVibrate(new long[]{100, 2000, 500, 2000});
@@ -418,42 +470,42 @@ public class MainActivity extends ActionBarActivity {
 
         switch (i) {
             case 1: //고온 알람
-                pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_NO_CREATE);
+               // pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 높아요!");
                 notification = nBuilder.build();
                 nm.notify(0, notification);
                 break;
             case 2: //미열 알람
-                pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_NO_CREATE);
+              //  pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이에게 미열이 있는거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(1, notification);
                 break;
             case 3: //저온 알람
-                pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_NO_CREATE);
+               // pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 낮아요!");
                 notification = nBuilder.build();
                 nm.notify(2, notification);
                 break;
             case 4: //심박수알람
-                pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_NO_CREATE);
+                //pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 심박수가 이상해요!");
                 notification = nBuilder.build();
                 nm.notify(3, notification);
                 break;
             case 5: //자세알람
-                pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_NO_CREATE);
+               // pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 자세가 이상한거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(4, notification);
                 break;
             case 6: //접근알람
-                pendingIntent = taskStackBuilder.getPendingIntent(666, PendingIntent.FLAG_NO_CREATE);
+                //pendingIntent = taskStackBuilder.getPendingIntent(666, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 위험구역에 접근한거 같아요!");
                 notification = nBuilder.build();
@@ -479,8 +531,6 @@ public class MainActivity extends ActionBarActivity {
         tAlarmPeriod_int = Integer.valueOf(tAlarmPeriod);
         pAlarmPeriod_int = Integer.valueOf(pAlarmPeriod);
         mAlarmPeriod_int = Integer.valueOf(mAlarmPeriod);
-
-
 //      Toast.makeText(getApplicationContext(),
 //            "값 : " + alarmOnOff
 //                  + " " + tAlarm
@@ -520,8 +570,8 @@ public class MainActivity extends ActionBarActivity {
         mRemoteDevie = getDeviceFromBondedList(selectedDeviceName);  //아기용
         mRemoteDevie2 = getDeviceFromBondedList(selectedDeviceName2);  //접근용
         // java.util.UUID.fromString : 자바에서 중복되지 않는 Unique 키 생성.
-        UUID uuid = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
-        UUID uuid2 = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+        UUID uuid2 = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
         try {
             // 소켓 생성, RFCOMM 채널을 통한 연결.
@@ -651,20 +701,20 @@ public class MainActivity extends ActionBarActivity {
                                                 }
                                             }
                                             if (pAlarm == true) {
-                                                    if (pAbnormal == false) {
-                                                        if(heartbeat>10){
-                                                            if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
-                                                                pAbnormal = true;
-                                                                createNotification(4);
-                                                            }
+                                                if (pAbnormal == false) {
+                                                    if (heartbeat > 10) {
+                                                        if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
+                                                            pAbnormal = true;
+                                                            createNotification(4);
                                                         }
-                                                    } else {
-                                                        if (pAbnormalCnt == pAlarmPeriod_int * 3 * 60) {
-                                                            pAbnormalCnt = 0;
-                                                            pAbnormal = false;
-                                                        }
-                                                        pAbnormalCnt++;
                                                     }
+                                                } else {
+                                                    if (pAbnormalCnt == pAlarmPeriod_int * 3 * 60) {
+                                                        pAbnormalCnt = 0;
+                                                        pAbnormal = false;
+                                                    }
+                                                    pAbnormalCnt++;
+                                                }
                                             }
 
 
@@ -674,8 +724,7 @@ public class MainActivity extends ActionBarActivity {
                                                         mAbnormal = true;
                                                         createNotification(5);
                                                     }
-                                                }
-                                                else {
+                                                } else {
                                                     if (mAbnormalCnt == mAlarmPeriod_int * 3 * 60) {
                                                         mAbnormalCnt = 0;
                                                         mAbnormal = false;

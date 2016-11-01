@@ -24,26 +24,26 @@ public class Fragment02 extends Fragment {
 
 		if(num==0){
 			iv.setImageResource(R.drawable.sandclock);
-			tv.setText("   심박수를 제고있어요. \n");
+			tv.setText("   심박수를 재고있어요. \n");
 		}
 
 		else if(num>minNormal_p && num<maxNormal_p)
 		{
 			iv.setImageResource(R.drawable.heartbeat);
 			tv.setText("   심박수가 정상이예요. \n" +
-					" 심박수 : "+num+" bpm");
+					"       심박수 : "+num+" bpm");
 		}
 		else if(num>maxNormal_p)
 		{
 			iv.setImageResource(R.drawable.heartbeatdanger);
 			tv.setText("   심박수가 빨라요. \n" +
-					" 심박수 : "+num+" bpm");
+					"  심박수 : "+num+" bpm");
 		}
 		else
 		{
 			iv.setImageResource(R.drawable.heartbeatdanger);
 			tv.setText("  심박수가 느려요. \n" +
-					" 심박수 : "+num+" bpm");
+					"  심박수 : "+num+" bpm");
 		}
 		return view;
 	}
