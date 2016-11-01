@@ -27,7 +27,7 @@ public class Fragment01 extends Fragment {
 				"     체온 : "+num+" ℃");
 		if(num<10)
 		{
-			iv.setImageResource(R.drawable.babysmile);
+			iv.setImageResource(R.drawable.sandclock);
 			tv.setText(" 측정중이에요. \n");
 		}
 

@@ -418,42 +418,42 @@ public class MainActivity extends ActionBarActivity {
 
         switch (i) {
             case 1: //고온 알람
-                pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 높아요!");
                 notification = nBuilder.build();
                 nm.notify(0, notification);
                 break;
             case 2: //미열 알람
-                pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이에게 미열이 있는거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(1, notification);
                 break;
             case 3: //저온 알람
-                pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 낮아요!");
                 notification = nBuilder.build();
                 nm.notify(2, notification);
                 break;
             case 4: //심박수알람
-                pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 심박수가 이상해요!");
                 notification = nBuilder.build();
                 nm.notify(3, notification);
                 break;
             case 5: //자세알람
-                pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 자세가 이상한거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(4, notification);
                 break;
             case 6: //접근알람
-                pendingIntent = taskStackBuilder.getPendingIntent(666, PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = taskStackBuilder.getPendingIntent(666, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 위험구역에 접근한거 같아요!");
                 notification = nBuilder.build();
@@ -651,33 +651,31 @@ public class MainActivity extends ActionBarActivity {
                                                 }
                                             }
                                             if (pAlarm == true) {
-                                                if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
-
                                                     if (pAbnormal == false) {
-                                                        if (temperature < minNormal_t || temperature > maxNormal_t) {
-                                                            pAbnormal = true;
-                                                            createNotification(4);
+                                                        if(heartbeat>10){
+                                                            if (heartbeat < minNormal_p || heartbeat > maxNormal_p) {
+                                                                pAbnormal = true;
+                                                                createNotification(4);
+                                                            }
                                                         }
                                                     } else {
                                                         if (pAbnormalCnt == pAlarmPeriod_int * 3 * 60) {
                                                             pAbnormalCnt = 0;
                                                             pAbnormal = false;
                                                         }
-                                                        Log.v("pperiod", "" + pAlarmPeriod_int);
-                                                        Log.v("pulseCNT", "" + pAbnormalCnt);
                                                         pAbnormalCnt++;
                                                     }
-
-                                                }
                                             }
-                                            Log.v("mal", "" + mAlarm);
+
+
                                             if (mAlarm == true) {
                                                 if (mAbnormal == false) {
                                                     if (movedata > 1000) {
                                                         mAbnormal = true;
                                                         createNotification(5);
                                                     }
-                                                } else {
+                                                }
+                                                else {
                                                     if (mAbnormalCnt == mAlarmPeriod_int * 3 * 60) {
                                                         mAbnormalCnt = 0;
                                                         mAbnormal = false;
