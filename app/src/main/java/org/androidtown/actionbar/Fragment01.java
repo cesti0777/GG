@@ -16,8 +16,8 @@ public class Fragment01 extends Fragment {
 		//double num = getArguments().getInt(ARG_PARAM1);
 		double num = getArguments().getDouble(ARG_PARAM1);
 		double SEEKBAR_VALUE_T = getArguments().getDouble(ARG_PARAM2);
-		double minNormal = SEEKBAR_VALUE_T-0.5;
-		double maxNormal = SEEKBAR_VALUE_T+0.5;
+		double minNormal = SEEKBAR_VALUE_T-1;
+		double maxNormal = SEEKBAR_VALUE_T+1;
 
 		View view = inflater.inflate(R.layout.frag01, container, false);
 		TextView tv = (TextView) view.findViewById(R.id.text01);

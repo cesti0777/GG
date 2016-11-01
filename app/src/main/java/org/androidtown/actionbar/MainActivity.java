@@ -409,7 +409,7 @@ public class MainActivity extends ActionBarActivity {
         NotificationManager nm;
         nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        nBuilder.setContentTitle("Baby Sitter");
+        nBuilder.setContentTitle("아이케어");
         nBuilder.setSmallIcon(R.drawable.babycrying);
         nBuilder.setAutoCancel(true);
         nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
@@ -620,8 +620,8 @@ public class MainActivity extends ActionBarActivity {
                                         public void run() {
                                             chagePrefValue();
 
-                                            double minNormal_t = SEEKBAR_VALUE_T - 0.5;
-                                            double maxNormal_t = SEEKBAR_VALUE_T + 0.5;
+                                            double minNormal_t = SEEKBAR_VALUE_T - 1;
+                                            double maxNormal_t = SEEKBAR_VALUE_T + 1;
                                             int minNormal_p = SEEKBAR_VALUE_P - 5;
                                             int maxNormal_p = SEEKBAR_VALUE_P + 5;
 
