@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -448,7 +447,7 @@ public class MainActivity extends ActionBarActivity {
     public void createNotification(int i) {  //알람 만들어주는 녀석
 
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, Fragment01.class), PendingIntent.FLAG_UPDATE_CURRENT );
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, Fragment01.class), PendingIntent.FLAG_UPDATE_CURRENT);
         //PendingIntent pendingIntent = PendingIntent.getService(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
         //TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
@@ -470,21 +469,21 @@ public class MainActivity extends ActionBarActivity {
 
         switch (i) {
             case 1: //고온 알람
-               // pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_NO_CREATE);
+                // pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 높아요!");
                 notification = nBuilder.build();
                 nm.notify(0, notification);
                 break;
             case 2: //미열 알람
-              //  pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_NO_CREATE);
+                //  pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이에게 미열이 있는거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(1, notification);
                 break;
             case 3: //저온 알람
-               // pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_NO_CREATE);
+                // pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 낮아요!");
                 notification = nBuilder.build();
@@ -498,7 +497,7 @@ public class MainActivity extends ActionBarActivity {
                 nm.notify(3, notification);
                 break;
             case 5: //자세알람
-               // pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_NO_CREATE);
+                // pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 자세가 이상한거 같아요!");
                 notification = nBuilder.build();
@@ -699,7 +698,11 @@ public class MainActivity extends ActionBarActivity {
                                                     Log.v("CNT값", "" + tAbnormalCnt);
                                                     tAbnormalCnt++;
                                                 }
+                                            } else {
+                                                tAbnormalCnt = 0;
+                                                tAbnormal = false;
                                             }
+
                                             if (pAlarm == true) {
                                                 if (pAbnormal == false) {
                                                     if (heartbeat > 10) {
@@ -715,25 +718,20 @@ public class MainActivity extends ActionBarActivity {
                                                     }
                                                     pAbnormalCnt++;
                                                 }
+                                            } else {
+                                                pAbnormalCnt = 0;
+                                                pAbnormal = false;
                                             }
 
 
                                             if (mAlarm == true) {
-                                                if (mAbnormal == false) {
-                                                    if (movedata > 1000) {
-                                                        mAbnormal = true;
-                                                        createNotification(5);
-                                                    }
-                                                } else {
-                                                    if (mAbnormalCnt == mAlarmPeriod_int * 3 * 60) {
-                                                        mAbnormalCnt = 0;
-                                                        mAbnormal = false;
-                                                    }
-                                                    Log.v("mperiod", "" + mAlarmPeriod_int);
-                                                    Log.v("moveCNT", "" + mAbnormalCnt);
-                                                    mAbnormalCnt++;
+
+                                                if (movedata > 1000) {
+                                                    mAbnormal = true;
+                                                    createNotification(5);
                                                 }
                                             }
+
 
                                         }
                                     });
@@ -794,7 +792,7 @@ public class MainActivity extends ActionBarActivity {
                                     int testdata2 = Integer.valueOf(data2);
 
                                     distance = testdata2;
-                                    if (aAlarm) {
+                                    if (aAlarm == true) {
                                         if (distance < 15)
                                             createNotification(6);
                                     }
