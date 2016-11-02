@@ -727,7 +727,6 @@ public class MainActivity extends ActionBarActivity {
                                             if (mAlarm == true) {
 
                                                 if (movedata > 1000) {
-                                                    mAbnormal = true;
                                                     createNotification(5);
                                                 }
                                             }

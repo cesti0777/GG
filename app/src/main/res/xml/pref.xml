@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<PreferenceCategory android:title="도움말">-->
+        <!--<Preference-->
+            <!--android:key="help"-->
+            <!--android:title="설정 사용법"-->
+            <!--android:enabled="true"/>-->
+    <!--</PreferenceCategory>-->
     <PreferenceCategory android:title="상태이상 알람">
         <SwitchPreference
             android:defaultValue="false"
@@ -61,15 +67,15 @@
             android:dependency="alarmOnOff"
             android:key="mAlarm"
             android:title="움직임이상 알람 사용" />
-        <ListPreference
-            android:defaultValue="1"
-            android:dependency="mAlarm"
-            android:entries="@array/mAlarmPeriod"
-            android:entryValues="@array/mAlarmPeriod_value"
-            android:key="mAlarmPeriod"
-            android:negativeButtonText="@null"
-            android:positiveButtonText="@null"
-            android:title="▶ 움직임 알림 주기 설정" />
+        <!--<ListPreference-->
+            <!--android:defaultValue="1"-->
+            <!--android:dependency="mAlarm"-->
+            <!--android:entries="@array/mAlarmPeriod"-->
+            <!--android:entryValues="@array/mAlarmPeriod_value"-->
+            <!--android:key="mAlarmPeriod"-->
+            <!--android:negativeButtonText="@null"-->
+            <!--android:positiveButtonText="@null"-->
+            <!--android:title="▶ 움직임 알림 주기 설정" />-->
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="alarmOnOff"
