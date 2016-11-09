@@ -52,12 +52,12 @@
         "source": "C:\\BabySitter\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tab_icon.xml"
     },
     {
-        "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\material_tabhost.xml",
-        "source": "C:\\Git\\GP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tabhost.xml"
-    },
-    {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_menu_layout.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\material_tabhost.xml",
+        "source": "C:\\Git\\GP\\libraryMaterialTabs\\src\\main\\res\\layout\\material_tabhost.xml"
     },
     {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_layout.xml",

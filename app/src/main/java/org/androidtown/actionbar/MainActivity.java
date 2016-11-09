@@ -447,8 +447,8 @@ public class MainActivity extends ActionBarActivity {
     public void createNotification(int i) {  //알람 만들어주는 녀석
 
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, Fragment01.class), PendingIntent.FLAG_UPDATE_CURRENT);
-        //PendingIntent pendingIntent = PendingIntent.getService(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+        //PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, Fragment01.class), PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
         //TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
         //taskStackBuilder.addNextIntent(intent);
