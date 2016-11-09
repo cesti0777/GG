@@ -11,7 +11,7 @@
  <TextView
      android:layout_width="wrap_content"
      android:layout_height="match_parent"
-     android:text="아이케어"
+     android:text="BabySitter"
      android:textSize="25dp"
      android:layout_marginTop="12dp"
      android:layout_marginLeft="12dp"

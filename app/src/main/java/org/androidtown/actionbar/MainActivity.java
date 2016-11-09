@@ -459,7 +459,7 @@ public class MainActivity extends ActionBarActivity {
         NotificationManager nm;
         nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        nBuilder.setContentTitle("아이케어");
+        nBuilder.setContentTitle("BabySitter");
         nBuilder.setSmallIcon(R.drawable.babycrying);
         nBuilder.setContentIntent(pendingIntent);
         nBuilder.setAutoCancel(true);

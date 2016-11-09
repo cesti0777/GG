@@ -9,7 +9,7 @@
         android:name=".Application"
         android:allowBackup="true"
         android:icon="@drawable/babyface"
-        android:label="아이케어"
+        android:label="BabySitter"
         android:logo="@drawable/icare"
         android:theme="@style/AppTheme"
         >
