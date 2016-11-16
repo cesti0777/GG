@@ -4,6 +4,10 @@
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout-v11\\abc_screen_content_include.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout-v11\\abc_screen_content_include.xml"
+    },
+    {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\abc_screen_content_include.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\layout-v11\\abc_screen_content_include.xml"
     }

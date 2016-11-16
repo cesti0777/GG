@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--<PreferenceCategory android:title="도움말">-->
-        <!--<Preference-->
-            <!--android:key="help"-->
-            <!--android:title="설정 사용법"-->
-            <!--android:enabled="true"/>-->
-    <!--</PreferenceCategory>-->
+    <PreferenceCategory android:title="도움말">
+        <Preference
+            android:key="help_temp"
+            android:title="체온 정상 임계치 설정 가이드">
+        </Preference>
+        <Preference
+            android:key="help_heart"
+            android:title="심박 수 정상 임계치 설정 가이드">
+        </Preference>
+    </PreferenceCategory>
     <PreferenceCategory android:title="상태이상 알람">
         <SwitchPreference
             android:defaultValue="false"
