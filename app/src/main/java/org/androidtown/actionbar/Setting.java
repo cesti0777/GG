@@ -54,12 +54,12 @@ public class Setting extends PreferenceActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setMessage("※ 개인차가 있을 수 있으니 \n" +
                         "참고용으로만 사용하세요. \n\n" +
-                        "[남성 정상 체온 범위] \n" +
+                        "[남성 정상 심박 수 범위] \n" +
                         "- 1세 미만 : 115~137 bpm \n" +
                         "- 1세 : 107~122 bpm \n" +
                         "- 2-3세 : 96~112 bpm \n\n" +
                         "-----------------------------\n\n"+
-                        "[여성 정상 체온 범위] \n" +
+                        "[여성 정상 심박 수 범위] \n" +
                         "- 1세 미만 : 118~137 bpm \n" +
                         "- 1세 : 110~125 bpm \n" +
                         "- 2-3세 : 98~114 bpm ");
