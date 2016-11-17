@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_secondary_text_material_dark.xml"
     },
@@ -24,8 +28,16 @@
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
         "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
@@ -34,6 +46,18 @@
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
@@ -46,6 +70,10 @@
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_light.xml",
@@ -64,6 +92,10 @@
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_search_url_text.xml"
+    },
+    {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
@@ -74,6 +106,10 @@
     {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_background_cache_hint_selector_material_dark.xml",
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",

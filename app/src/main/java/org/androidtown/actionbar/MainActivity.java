@@ -19,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -728,6 +729,7 @@ public class MainActivity extends ActionBarActivity {
 
                                                 if (movedata > 1000) {
                                                     createNotification(5);
+                                                    SystemClock.sleep(1500);
                                                 }
                                             }
 
@@ -792,8 +794,10 @@ public class MainActivity extends ActionBarActivity {
 
                                     distance = testdata2;
                                     if (aAlarm == true) {
-                                        if (distance < 15)
+                                        if (distance < 15) {
                                             createNotification(6);
+                                            SystemClock.sleep(1500);
+                                        }
                                     }
                                     readBufferPosition2 = 0;
 
