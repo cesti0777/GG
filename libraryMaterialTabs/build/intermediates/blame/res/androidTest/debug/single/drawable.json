@@ -8,12 +8,20 @@
         "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
         "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
@@ -24,12 +32,12 @@
         "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
-        "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_radio_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
@@ -56,12 +64,24 @@
         "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
         "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_dark.xml",
@@ -104,6 +124,14 @@
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
         "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
@@ -120,8 +148,24 @@
         "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "C:\\Users\\Administrator\\Documents\\GGG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
@@ -200,6 +244,10 @@
         "source": "C:\\GG\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
         "merged": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
         "source": "C:\\BabySitter\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
@@ -218,6 +266,14 @@
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\bb\\libraryMaterialTabs\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "C:\\Git\\GP\\libraryMaterialTabs\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",

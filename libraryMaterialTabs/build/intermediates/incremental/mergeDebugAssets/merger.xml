@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\GG\libraryMaterialTabs\src\main\assets"/><source path="C:\GG\libraryMaterialTabs\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\GG\libraryMaterialTabs\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\bb\libraryMaterialTabs\src\main\assets"/><source path="C:\bb\libraryMaterialTabs\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\bb\libraryMaterialTabs\src\debug\assets"/></dataSet></merger>

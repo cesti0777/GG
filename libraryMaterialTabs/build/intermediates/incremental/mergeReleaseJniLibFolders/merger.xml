@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\GG\libraryMaterialTabs\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="C:\GG\libraryMaterialTabs\src\release\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\bb\libraryMaterialTabs\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="C:\bb\libraryMaterialTabs\src\release\jniLibs"/></dataSet></merger>
