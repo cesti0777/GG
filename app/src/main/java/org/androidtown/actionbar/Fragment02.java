@@ -27,7 +27,7 @@ public class Fragment02 extends Fragment {
 			tv.setText("   심박수를 재고있어요. \n");
 		}
 
-		else if(num>minNormal_p && num<maxNormal_p)
+		else if(num>=minNormal_p && num<=maxNormal_p)
 		{
 			iv.setImageResource(R.drawable.heartbeat);
 			tv.setText("   심박수가 정상이예요. \n" +
