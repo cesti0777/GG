@@ -60,6 +60,7 @@ public class MainActivity extends ActionBarActivity {
 
     private static final String ARG_PARAM7 = "정상 심박수 임계값";
     private static final String ARG_PARAM8 = "거리값";
+    private static final String ARG_PARAM9 = "거리 임계값";
     private CountDownTimer timer;
 
     /**
@@ -145,6 +146,7 @@ public class MainActivity extends ActionBarActivity {
     boolean aAlarm;
     double SEEKBAR_VALUE_T;
     int SEEKBAR_VALUE_P;
+    int SEEKBAR_VALUE_A;
 
     String tAlarmPeriod = "1";
     String pAlarmPeriod = "1";
@@ -346,6 +348,7 @@ public class MainActivity extends ActionBarActivity {
                 frag = new Fragment04();
                 Bundle args = new Bundle();
                 args.putInt(ARG_PARAM8, distance);
+                args.putInt(ARG_PARAM9, SEEKBAR_VALUE_A);
                 frag.setArguments(args);
             }
             return frag;
@@ -446,12 +449,8 @@ public class MainActivity extends ActionBarActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void createNotification(int i) {  //알람 만들어주는 녀석
 
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        //PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, Fragment01.class), PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(getApplicationContext());
-        //taskStackBuilder.addNextIntent(intent);
 
         NotificationCompat.Builder nBuilder;
         nBuilder = new NotificationCompat.Builder(this);
@@ -464,47 +463,42 @@ public class MainActivity extends ActionBarActivity {
         nBuilder.setContentIntent(pendingIntent);
         nBuilder.setAutoCancel(true);
         nBuilder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+
         nBuilder.setVibrate(new long[]{100, 2000, 500, 2000});
         nBuilder.setLights(Color.RED, 400, 400);
 
         switch (i) {
             case 1: //고온 알람
-                // pendingIntent = taskStackBuilder.getPendingIntent(111, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 높아요!");
                 notification = nBuilder.build();
                 nm.notify(0, notification);
                 break;
             case 2: //미열 알람
-                //  pendingIntent = taskStackBuilder.getPendingIntent(222, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이에게 미열이 있는거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(1, notification);
                 break;
             case 3: //저온 알람
-                // pendingIntent = taskStackBuilder.getPendingIntent(333, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 체온이 낮아요!");
                 notification = nBuilder.build();
                 nm.notify(2, notification);
                 break;
             case 4: //심박수알람
-                //pendingIntent = taskStackBuilder.getPendingIntent(444, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 심박수가 이상해요!");
                 notification = nBuilder.build();
                 nm.notify(3, notification);
                 break;
             case 5: //자세알람
-                // pendingIntent = taskStackBuilder.getPendingIntent(555, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 자세가 이상한거 같아요!");
                 notification = nBuilder.build();
                 nm.notify(4, notification);
                 break;
             case 6: //접근알람
-                //pendingIntent = taskStackBuilder.getPendingIntent(666, PendingIntent.FLAG_NO_CREATE);
                 nBuilder.setContentIntent(pendingIntent);
                 nBuilder.setContentText("아이 위험구역에 접근한거 같아요!");
                 notification = nBuilder.build();
@@ -514,9 +508,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void chagePrefValue() {
-        //기본 SharedPreference를 가져옴. (PreferenceActivity에서 설정한 pref)
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        //Preference 자료 수정을 위하여 editor 생성
         alarmOnOff = prefs.getBoolean("alarmOnOff", false);
         tAlarm = prefs.getBoolean("tAlarm", false);
         pAlarm = prefs.getBoolean("pAlarm", false);
@@ -524,22 +516,13 @@ public class MainActivity extends ActionBarActivity {
         aAlarm = prefs.getBoolean("aAlarm", false);
         SEEKBAR_VALUE_T = prefs.getInt("SEEKBAR_VALUE_T", 36);
         SEEKBAR_VALUE_P = prefs.getInt("SEEKBAR_VALUE_P", 70);
+        SEEKBAR_VALUE_A = prefs.getInt("SEEKBAR_VALUE_A", 70);
         tAlarmPeriod = prefs.getString("tAlarmPeriod", "1");
         pAlarmPeriod = prefs.getString("pAlarmPeriod", "1");
         mAlarmPeriod = prefs.getString("mAlarmPeriod", "1");
         tAlarmPeriod_int = Integer.valueOf(tAlarmPeriod);
         pAlarmPeriod_int = Integer.valueOf(pAlarmPeriod);
         mAlarmPeriod_int = Integer.valueOf(mAlarmPeriod);
-//      Toast.makeText(getApplicationContext(),
-//            "값 : " + alarmOnOff
-//                  + " " + tAlarm
-//                  + " " + pAlarm
-//                  + " " + mAlarm
-//                  + " " + aAlarm
-//                  + " " + SEEKBAR_VALUE_T
-//                  + " " + SEEKBAR_VALUE_P
-//               + " " + tAlarmPeriod
-//            , Toast.LENGTH_SHORT).show();
 
     }
 
@@ -606,7 +589,7 @@ public class MainActivity extends ActionBarActivity {
     // 데이터 수신(쓰레드 사용 수신된 메시지를 계속 검사함)
     void beginListenForData() {
         final Handler handler = new Handler();
-        final Handler handler2 = new Handler();
+        //final Handler handler2 = new Handler();
 
         readBufferPosition = 0;                 // 버퍼 내 수신 문자 저장 위치.
         readBuffer = new byte[1024];            // 수신 버퍼.
@@ -723,9 +706,7 @@ public class MainActivity extends ActionBarActivity {
                                                 pAbnormal = false;
                                             }
 
-
                                             if (mAlarm == true) {
-
                                                 if (movedata > 1000) {
                                                     createNotification(5);
                                                 }
@@ -792,9 +773,12 @@ public class MainActivity extends ActionBarActivity {
 
                                     distance = testdata2;
                                     if (aAlarm == true) {
-                                        if (distance < 15)
+
+                                        if (distance < SEEKBAR_VALUE_A)
+
                                             createNotification(6);
-                                    } createNotification(6);
+
+                                    }
                                     readBufferPosition2 = 0;
 
                                 } else {

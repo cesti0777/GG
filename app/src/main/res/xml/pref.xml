@@ -52,7 +52,7 @@
             android:dialogMessage="@string/settings_dialog_message_p"
             android:dependency="pAlarm"
             android:key="SEEKBAR_VALUE_P"
-            android:max="100"
+            android:max="140"
             android:summary="@string/settings_summary_p"
             android:text="@string/settings_unit_p"
             android:title="@string/settings_title_p" />
@@ -85,5 +85,14 @@
             android:dependency="alarmOnOff"
             android:key="aAlarm"
             android:title="접근금지구역 알람 사용" />
+        <org.androidtown.actionbar.SeekBarPreference
+            android:defaultValue="20"
+            android:dialogMessage="@string/settings_dialog_message_a"
+            android:dependency="aAlarm"
+            android:key="SEEKBAR_VALUE_A"
+            android:max="70"
+            android:summary="@string/settings_summary_a"
+            android:text="@string/settings_unit_a"
+            android:title="@string/settings_title_a" />
     </PreferenceCategory>
 </PreferenceScreen>

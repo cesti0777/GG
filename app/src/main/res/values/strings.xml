@@ -16,4 +16,9 @@
     <string name="settings_summary_p"></string>
     <string name="settings_unit_p">BPM</string>
     <string name="settings_title_p">▶ 정상 심박수 설정</string>
+
+    <string name="settings_dialog_message_a">접근제한 거리</string>
+    <string name="settings_summary_a"></string>
+    <string name="settings_unit_a">CM</string>
+    <string name="settings_title_a">▶ 접근제한 거리</string>
 </resources>

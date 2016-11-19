@@ -10,11 +10,13 @@ import android.widget.TextView;
 
 public class Fragment04 extends Fragment {
 	private static final String ARG_PARAM8 = "거리값";
+	private static final String ARG_PARAM9 = "거리 임계값";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
 		//int  num = 0; // 움직임은 아직 세팅 전
 		int  num0 = getArguments().getInt(ARG_PARAM8);
+		int  num1 = getArguments().getInt(ARG_PARAM9);
 		View view = inflater.inflate(R.layout.frag04, container, false);
 		TextView tv = (TextView) view.findViewById(R.id.text04);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv4);
@@ -23,7 +25,7 @@ public class Fragment04 extends Fragment {
 			tv.setText(" 기기와 연결중이에요!");
 		}
 
-		else if(num0 < 20)
+		else if(num0 < num1)
 		{
 			iv.setImageResource(R.drawable.warning);
 			tv.setText("    아이가 접근금지 구역에 \n" +
